@@ -179,7 +179,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="section-padding">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -187,120 +187,110 @@ const Skills = () => {
           animate={isInView ? "visible" : "hidden"}
           className="max-w-6xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               {t('skills.title')} <span className="gradient-text">{t('skills.subtitle')}</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
               {t('skills.description')}
             </p>
           </motion.div>
 
           {/* Technical Skills */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            {skillCategories.map((category) => (
-              <motion.div
-                key={category.title}
-                variants={itemVariants}
-                className="glass-effect p-8 rounded-xl"
-              >
-                <div className={`inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full border ${getColorClasses(category.color).border} ${getColorClasses(category.color).bg}`}>
-                  <category.icon size={20} className={getColorClasses(category.color).text} />
-                  <h3 className="text-lg font-semibold text-white">{category.title}</h3>
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {category.skills.map((skill) => (
-                    <motion.div
-                      key={skill.name}
-                      variants={skillVariants}
-                      whileHover={{ 
-                        scale: 1.05,
-                        transition: { type: "spring", stiffness: 300 }
-                      }}
-                      className={`
-                        p-4 rounded-lg border transition-all duration-300 cursor-pointer
-                        ${getColorClasses(category.color).bg} 
-                        ${getColorClasses(category.color).border}
-                        ${getColorClasses(category.color).hover}
-                        group
-                      `}
-                    >
-                      <div className="text-center space-y-2">
-                        <div className="flex justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
+            {skillCategories.map((category, index) => {
+              const colorClasses = getColorClasses(category.color)
+              return (
+                <motion.div
+                  key={category.title}
+                  variants={itemVariants}
+                  className="glass-effect p-6 sm:p-8 rounded-xl"
+                >
+                  <div className={`flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 p-3 sm:p-4 ${colorClasses.bg} rounded-lg border ${colorClasses.border}`}>
+                    <category.icon className={`${colorClasses.text} w-5 h-5 sm:w-6 sm:h-6`} />
+                    <h3 className={`text-lg sm:text-xl font-bold ${colorClasses.text}`}>
+                      {category.title}
+                    </h3>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                    {category.skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skill.name}
+                        variants={skillVariants}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`p-3 sm:p-4 bg-slate-800/50 rounded-lg border border-slate-700/50 ${colorClasses.hover} transition-all duration-300 cursor-pointer`}
+                      >
+                        <div className="flex flex-col items-center text-center space-y-2">
                           <skill.icon 
-                            size={32} 
-                            style={{ color: skill.color }}
-                            className="drop-shadow-lg"
+                            size={24} 
+                            className="sm:w-8 sm:h-8"
+                            style={{ color: skill.color }} 
                           />
+                          <span className="text-xs sm:text-sm font-medium text-gray-300">
+                            {skill.name}
+                          </span>
                         </div>
-                        <div className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
-                          {skill.name}
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
 
           {/* Soft Skills */}
-          <motion.div variants={itemVariants}>
-            <div className="glass-effect p-8 rounded-xl">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">{t('skills.professional')}</h3>
-                <p className="text-gray-400">{t('skills.description')}</p>
-              </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {softSkills.map((skill) => (
-                  <motion.div
-                    key={skill.name}
-                    variants={skillVariants}
-                    whileHover={{ 
-                      scale: 1.05,
-                      transition: { type: "spring", stiffness: 300 }
-                    }}
-                    className="
-                      p-4 rounded-lg border transition-all duration-300 cursor-pointer
-                      bg-slate-700/30 border-slate-600/30 hover:bg-slate-600/40 hover:border-slate-500/50
-                      group text-center
-                    "
-                  >
-                    <skill.icon 
-                      size={24} 
-                      className="mx-auto mb-2 text-gray-400 group-hover:text-white group-hover:scale-110 transition-all duration-300" 
-                    />
-                    <div className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+          <motion.div variants={itemVariants} className="glass-effect p-6 sm:p-8 rounded-xl">
+            <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 p-3 sm:p-4 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg border border-purple-500/30">
+              <Brain className="text-purple-400 w-5 h-5 sm:w-6 sm:h-6" />
+              <h3 className="text-lg sm:text-xl font-bold text-purple-400">
+                {t('skills.soft')}
+              </h3>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {softSkills.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  variants={skillVariants}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="p-3 sm:p-4 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:bg-purple-500/10 hover:border-purple-400/50 transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex flex-col items-center text-center space-y-2">
+                    <skill.icon className="text-purple-400 w-5 h-5 sm:w-6 sm:h-6" />
+                    <span className="text-xs sm:text-sm font-medium text-gray-300">
                       {skill.name}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
           {/* Skills Summary */}
-          <motion.div variants={itemVariants} className="mt-12">
-            <div className="glass-effect p-8 rounded-xl text-center">
-              <h3 className="text-2xl font-bold mb-6 text-white">Skills Overview</h3>
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-blue-400">6+</div>
-                  <div className="text-gray-400">Programming Languages</div>
+          <motion.div variants={itemVariants} className="mt-8 sm:mt-12 text-center">
+            <div className="glass-effect p-6 sm:p-8 rounded-xl">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">
+                {t('skills.summary')}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-2">6+</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('skills.languages')}</div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-green-400">6+</div>
-                  <div className="text-gray-400">Web Technologies</div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-2">6+</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('skills.frameworks')}</div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-purple-400">5+</div>
-                  <div className="text-gray-400">Database Systems</div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">5+</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('skills.databases')}</div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-orange-400">6+</div>
-                  <div className="text-gray-400">Development Tools</div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-orange-400 mb-2">6+</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('skills.tools')}</div>
                 </div>
               </div>
             </div>

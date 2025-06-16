@@ -102,7 +102,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding bg-slate-900/50">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -110,21 +110,21 @@ const Contact = () => {
           animate={isInView ? "visible" : "hidden"}
           className="max-w-6xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               {t('contact.title')} <span className="gradient-text">{t('contact.me')}</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
               {t('contact.subtitle')}
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Information */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <div className="glass-effect p-8 rounded-xl">
-                <h3 className="text-2xl font-bold text-white mb-6">{t('contact.info')}</h3>
-                <div className="space-y-6">
+            <motion.div variants={itemVariants} className="space-y-6 sm:space-y-8">
+              <div className="glass-effect p-6 sm:p-8 rounded-xl">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">{t('contact.info')}</h3>
+                <div className="space-y-4 sm:space-y-6">
                   {contactInfo.map((info) => (
                     <motion.a
                       key={info.label}
@@ -133,14 +133,14 @@ const Contact = () => {
                       rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors group"
+                      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-white/5 transition-colors group"
                     >
-                      <div className={`p-3 rounded-lg border ${getColorClasses(info.color)}`}>
-                        <info.icon size={24} />
+                      <div className={`p-2 sm:p-3 rounded-lg border ${getColorClasses(info.color)} flex-shrink-0`}>
+                        <info.icon size={20} className="sm:w-6 sm:h-6" />
                       </div>
-                      <div>
-                        <div className="text-gray-400 text-sm">{info.label}</div>
-                        <div className="text-white font-semibold group-hover:text-accent-400 transition-colors">
+                      <div className="min-w-0 flex-1">
+                        <div className="text-gray-400 text-xs sm:text-sm">{info.label}</div>
+                        <div className="text-white font-semibold group-hover:text-accent-400 transition-colors text-sm sm:text-base break-all">
                           {info.value}
                         </div>
                       </div>
@@ -150,9 +150,9 @@ const Contact = () => {
               </div>
 
               {/* Social Links */}
-              <div className="glass-effect p-8 rounded-xl">
-                <h3 className="text-2xl font-bold text-white mb-6">{t('contact.social')}</h3>
-                <div className="flex gap-4">
+              <div className="glass-effect p-6 sm:p-8 rounded-xl">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">{t('contact.social')}</h3>
+                <div className="flex gap-3 sm:gap-4">
                   {socialLinks.map((social) => (
                     <motion.a
                       key={social.label}
@@ -161,24 +161,24 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.9 }}
-                      className={`p-4 rounded-lg border ${getColorClasses(social.color)} hover:bg-white/5 transition-colors`}
+                      className={`p-3 sm:p-4 rounded-lg border ${getColorClasses(social.color)} hover:bg-white/5 transition-colors`}
                       aria-label={social.label}
                     >
-                      <social.icon size={24} />
+                      <social.icon size={20} className="sm:w-6 sm:h-6" />
                     </motion.a>
                   ))}
                 </div>
               </div>
 
               {/* Availability */}
-              <div className="glass-effect p-8 rounded-xl">
-                <h3 className="text-2xl font-bold text-white mb-4">{t('contact.availability')}</h3>
-                <div className="space-y-4">
+              <div className="glass-effect p-6 sm:p-8 rounded-xl">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">{t('contact.availability')}</h3>
+                <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-green-400 font-semibold">{t('contact.available')}</span>
+                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
+                    <span className="text-green-400 font-semibold text-sm sm:text-base">{t('contact.available')}</span>
                   </div>
-                  <p className="text-gray-400">
+                  <p className="text-gray-400 text-sm sm:text-base">
                     {t('contact.availableDesc')}
                   </p>
                   <motion.a
@@ -186,9 +186,9 @@ const Contact = () => {
                     download="CV_YoeliBarthel.pdf"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 text-blue-300 rounded-lg hover:bg-blue-500/30 transition-all duration-300 font-semibold"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 text-blue-300 rounded-lg hover:bg-blue-500/30 transition-all duration-300 font-semibold text-sm sm:text-base"
                   >
-                    <Download size={18} />
+                    <Download size={16} className="sm:w-[18px] sm:h-[18px]" />
                     {t('contact.downloadCV')}
                   </motion.a>
                 </div>
@@ -197,48 +197,54 @@ const Contact = () => {
 
             {/* Contact Form */}
             <motion.div variants={itemVariants}>
-              <div className="glass-effect p-8 rounded-xl">
-                <h3 className="text-2xl font-bold text-white mb-6">{t('contact.form.title')}</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-gray-300 mb-2">
-                        <User size={16} className="inline mr-2" />
-                        {t('contact.form.name')}
-                      </label>
+              <div className="glass-effect p-6 sm:p-8 rounded-xl">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 flex items-center gap-2">
+                  <MessageSquare size={20} className="sm:w-6 sm:h-6" />
+                  {t('contact.form')}
+                </h3>
+                
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                      {t('contact.name')}
+                    </label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                       <input
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
+                        className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors text-sm sm:text-base"
+                        placeholder={t('contact.namePlaceholder')}
                         required
-                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors"
-                        placeholder={t('contact.form.namePlaceholder')}
                       />
                     </div>
-                    <div>
-                      <label htmlFor="email" className="block text-gray-300 mb-2">
-                        <Mail size={16} className="inline mr-2" />
-                        {t('contact.form.email')}
-                      </label>
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                      {t('contact.email')}
+                    </label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                       <input
                         type="email"
                         id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
+                        className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors text-sm sm:text-base"
+                        placeholder={t('contact.emailPlaceholder')}
                         required
-                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors"
-                        placeholder={t('contact.form.emailPlaceholder')}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-gray-300 mb-2">
-                      <MessageSquare size={16} className="inline mr-2" />
-                      {t('contact.form.subject')}
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                      {t('contact.subject')}
                     </label>
                     <input
                       type="text"
@@ -246,24 +252,24 @@ const Contact = () => {
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors"
-                      placeholder={t('contact.form.subjectPlaceholder')}
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors text-sm sm:text-base"
+                      placeholder={t('contact.subjectPlaceholder')}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-gray-300 mb-2">
-                      {t('contact.form.message')}
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                      {t('contact.message')}
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      required
                       rows={6}
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors resize-none"
-                      placeholder={t('contact.form.messagePlaceholder')}
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors resize-none text-sm sm:text-base"
+                      placeholder={t('contact.messagePlaceholder')}
+                      required
                     />
                   </div>
 
@@ -271,10 +277,10 @@ const Contact = () => {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full btn-primary inline-flex items-center justify-center gap-2"
+                    className="w-full btn-primary py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                   >
-                    <Send size={20} />
-                    {t('contact.form.send')}
+                    <Send size={18} />
+                    {t('contact.send')}
                   </motion.button>
                 </form>
               </div>

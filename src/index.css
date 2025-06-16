@@ -37,11 +37,11 @@
   }
   
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm sm:text-base;
   }
   
   .section-padding {
-    @apply px-6 py-20 md:px-12 lg:px-24;
+    @apply px-4 py-16 sm:px-6 sm:py-20 md:px-8 lg:px-12 xl:px-24;
   }
 
   /* Fix for Canvas rendering issues */
@@ -53,6 +53,35 @@
   /* Ensure consistent background */
   .bg-fallback {
     background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%) !important;
+  }
+
+  /* Mobile-specific improvements */
+  @media (max-width: 640px) {
+    .container {
+      @apply px-4;
+    }
+    
+    .glass-effect {
+      @apply border-white/10;
+    }
+    
+    /* Ensure text is readable on small screens */
+    .gradient-text {
+      @apply text-transparent;
+      background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    
+    /* Improve touch targets */
+    button, a[role="button"] {
+      min-height: 44px;
+    }
+    
+    /* Better spacing for mobile forms */
+    input, textarea, select {
+      @apply text-base; /* Prevent zoom on iOS */
+    }
   }
 
   /* RTL Support for Hebrew */
@@ -97,11 +126,40 @@
   .french-nav .nav-spacing > *:last-child {
     margin-right: 2rem;
   }
+
+  /* Better mobile navigation */
+  @media (max-width: 768px) {
+    .nav-spacing {
+      @apply gap-4;
+    }
+    
+    /* Hide desktop elements on mobile when needed */
+    .desktop-only {
+      @apply hidden md:block;
+    }
+    
+    .mobile-only {
+      @apply block md:hidden;
+    }
+  }
+
+  /* Improved scroll behavior for mobile */
+  @media (max-width: 640px) {
+    html {
+      scroll-padding-top: 80px; /* Account for fixed header */
+    }
+  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+}
+
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -115,4 +173,22 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* Mobile-first media queries */
+@media (max-width: 320px) {
+  .section-padding {
+    @apply px-3 py-12;
+  }
+  
+  .container {
+    @apply px-3;
+  }
+}
+
+/* Better focus states for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+  .btn-primary:focus-visible {
+    @apply ring-2 ring-blue-500 ring-offset-2 ring-offset-slate-900;
+  }
 } 

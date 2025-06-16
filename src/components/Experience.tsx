@@ -94,7 +94,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="section-padding">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -102,55 +102,55 @@ const Experience = () => {
           animate={isInView ? "visible" : "hidden"}
           className="max-w-6xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               {t('experience.title')} <span className="gradient-text">{t('experience.subtitle')}</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
               {t('experience.description')}
             </p>
           </motion.div>
 
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-green-500 hidden md:block" />
+            {/* Timeline Line - Hidden on mobile */}
+            <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-green-500 hidden md:block" />
 
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12">
               {experiences.map((exp, _) => (
                 <motion.div
                   key={exp.title}
                   variants={itemVariants}
                   className="relative"
                 >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-6 w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-slate-900 hidden md:block" />
+                  {/* Timeline Dot - Adjusted for smaller screens */}
+                  <div className="absolute left-4 sm:left-6 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-2 sm:border-4 border-slate-900 hidden md:block" />
                   
-                  <div className="md:ml-20 glass-effect p-8 rounded-xl">
-                    <div className="flex flex-col lg:flex-row lg:items-start gap-6">
+                  <div className="md:ml-16 lg:ml-20 glass-effect p-4 sm:p-6 lg:p-8 rounded-xl">
+                    <div className="flex flex-col lg:flex-row lg:items-start gap-4 sm:gap-6">
                       {/* Left Column - Basic Info */}
-                      <div className="lg:w-1/3 space-y-4">
-                        <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-full border ${getColorClasses(exp.color)}`}>
-                          <exp.icon size={20} />
+                      <div className="lg:w-1/3 space-y-3 sm:space-y-4">
+                        <div className={`inline-flex items-center gap-2 sm:gap-3 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border text-sm sm:text-base ${getColorClasses(exp.color)}`}>
+                          <exp.icon size={16} className="sm:w-5 sm:h-5" />
                           <span className="font-semibold">{exp.type}</span>
                         </div>
 
                         <div>
-                          <h3 className="text-2xl font-bold text-white mb-2">{exp.title}</h3>
-                          <h4 className="text-lg font-semibold text-accent-400 mb-4">{exp.company}</h4>
+                          <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{exp.title}</h3>
+                          <h4 className="text-base sm:text-lg font-semibold text-accent-400 mb-3 sm:mb-4">{exp.company}</h4>
                         </div>
 
-                        <div className="space-y-2 text-sm text-gray-400">
+                        <div className="space-y-2 text-xs sm:text-sm text-gray-400">
                           <div className="flex items-center gap-2">
-                            <Calendar size={16} />
+                            <Calendar size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
                             <span>{exp.period}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <MapPin size={16} />
+                            <MapPin size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
                             <span>{exp.location}</span>
                           </div>
                           {exp.title.includes("Manager") && (
                             <div className="flex items-center gap-2">
-                              <Users size={16} />
+                              <Users size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
                               <span>Team of 5 people</span>
                             </div>
                           )}
@@ -158,20 +158,20 @@ const Experience = () => {
                       </div>
 
                       {/* Right Column - Details */}
-                      <div className="lg:w-2/3 space-y-6">
-                        <p className="text-gray-300 leading-relaxed text-lg">
+                      <div className="lg:w-2/3 space-y-4 sm:space-y-6">
+                        <p className="text-gray-300 leading-relaxed text-sm sm:text-base lg:text-lg">
                           {exp.description}
                         </p>
 
                         <div>
-                          <h5 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                            <Briefcase size={18} />
+                          <h5 className="text-base sm:text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                            <Briefcase size={16} className="sm:w-[18px] sm:h-[18px]" />
                             {exp.type === "Education" ? "Key Achievements" : "Main Responsibilities"}
                           </h5>
                           <ul className="space-y-2">
                             {exp.responsibilities.map((resp, idx) => (
-                              <li key={idx} className="text-gray-300 flex items-start gap-2">
-                                <span className="text-accent-400 mt-1">•</span>
+                              <li key={idx} className="text-gray-300 flex items-start gap-2 text-sm sm:text-base">
+                                <span className="text-accent-400 mt-1 flex-shrink-0">•</span>
                                 <span>{resp}</span>
                               </li>
                             ))}
@@ -179,12 +179,12 @@ const Experience = () => {
                         </div>
 
                         <div>
-                          <h5 className="text-lg font-semibold text-white mb-3">Skills Developed</h5>
+                          <h5 className="text-base sm:text-lg font-semibold text-white mb-3">Skills Developed</h5>
                           <div className="flex flex-wrap gap-2">
                             {exp.skills.map((skill) => (
                               <span
                                 key={skill}
-                                className={`px-3 py-1 rounded-full text-sm font-medium border ${getColorClasses(exp.color)} bg-${exp.color}-500/10`}
+                                className={`px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium border ${getColorClasses(exp.color)} bg-${exp.color}-500/10`}
                               >
                                 {skill}
                               </span>
@@ -200,25 +200,23 @@ const Experience = () => {
           </div>
 
           {/* Summary Stats */}
-          <motion.div variants={itemVariants} className="mt-16">
-            <div className="glass-effect p-8 rounded-xl">
-              <h3 className="text-2xl font-bold text-center text-white mb-8">{t('experience.profileSummary')}</h3>
-              <div className="grid md:grid-cols-4 gap-6 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-purple-400 mb-2">2025</div>
-                  <div className="text-gray-400">{t('experience.freshGraduate')}</div>
+          <motion.div variants={itemVariants} className="mt-8 sm:mt-12">
+            <div className="glass-effect p-6 sm:p-8 rounded-xl">
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-white">
+                {t('experience.summary')}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8">
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">3</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('experience.years')}</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-blue-400 mb-2">5</div>
-                  <div className="text-gray-400">{t('experience.peopleManaged')}</div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-2">5+</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('experience.team')}</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-green-400 mb-2">3</div>
-                  <div className="text-gray-400">{t('experience.majorProjects')}</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-orange-400 mb-2">100%</div>
-                  <div className="text-gray-400">{t('experience.readyToStart')}</div>
+                <div className="text-center col-span-2 sm:col-span-1">
+                  <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-2">100%</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('experience.dedication')}</div>
                 </div>
               </div>
             </div>
