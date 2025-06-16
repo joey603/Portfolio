@@ -198,7 +198,7 @@ const Skills = () => {
 
           {/* Technical Skills */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            {skillCategories.map((category, index) => {
+            {skillCategories.map((category) => {
               const colorClasses = getColorClasses(category.color)
               return (
                 <motion.div
@@ -214,7 +214,7 @@ const Skills = () => {
                   </div>
                   
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                    {category.skills.map((skill, skillIndex) => (
+                    {category.skills.map((skill) => (
                       <motion.div
                         key={skill.name}
                         variants={skillVariants}
@@ -250,7 +250,7 @@ const Skills = () => {
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-              {softSkills.map((skill, index) => (
+              {softSkills.map((skill) => (
                 <motion.div
                   key={skill.name}
                   variants={skillVariants}
