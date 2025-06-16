@@ -210,7 +210,7 @@ const Skills = () => {
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {category.skills.map((skill, index) => (
+                  {category.skills.map((skill) => (
                     <motion.div
                       key={skill.name}
                       variants={skillVariants}
@@ -254,7 +254,7 @@ const Skills = () => {
               </div>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {softSkills.map((skill, index) => (
+                {softSkills.map((skill) => (
                   <motion.div
                     key={skill.name}
                     variants={skillVariants}
