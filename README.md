@@ -85,7 +85,7 @@ Features:
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yoeli-barthel/portfolio.git
+git clone https://github.com/joey603/Portfolio.git
 
 # Navigate to the folder
 cd portfolio
@@ -170,4 +170,4 @@ This project is under MIT license. See the `LICENSE` file for more details.
 
 ---
 
-**Developed with ❤️ by Yoeli Barthel** 
+**Developed with ❤️ by Yoeli Barthel**
