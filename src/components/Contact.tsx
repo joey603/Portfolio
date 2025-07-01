@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { Mail, Phone, MapPin, Github, Linkedin, Send, User, MessageSquare, Download, MessageCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Github, Linkedin, User, MessageSquare, Download, MessageCircle } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 
 const Contact = () => {
