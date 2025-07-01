@@ -245,7 +245,7 @@ const Skills = () => {
             <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 p-3 sm:p-4 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg border border-purple-500/30">
               <Brain className="text-purple-400 w-5 h-5 sm:w-6 sm:h-6" />
               <h3 className="text-lg sm:text-xl font-bold text-purple-400">
-                {t('skills.soft')}
+                {t('skills.professional')}
               </h3>
             </div>
             
@@ -269,32 +269,7 @@ const Skills = () => {
             </div>
           </motion.div>
 
-          {/* Skills Summary */}
-          <motion.div variants={itemVariants} className="mt-8 sm:mt-12 text-center">
-            <div className="glass-effect p-6 sm:p-8 rounded-xl">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">
-                {t('skills.summary')}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-2">6+</div>
-                  <div className="text-xs sm:text-sm text-gray-400">{t('skills.languages')}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-2">6+</div>
-                  <div className="text-xs sm:text-sm text-gray-400">{t('skills.frameworks')}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">5+</div>
-                  <div className="text-xs sm:text-sm text-gray-400">{t('skills.databases')}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-orange-400 mb-2">6+</div>
-                  <div className="text-xs sm:text-sm text-gray-400">{t('skills.tools')}</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          
         </motion.div>
       </div>
     </section>

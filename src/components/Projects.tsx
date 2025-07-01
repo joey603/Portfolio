@@ -62,6 +62,42 @@ const Projects = () => {
       },
       category: "Team Project",
       color: "purple"
+    },
+    {
+      title: t('project.opetitsoins.title'),
+      description: t('project.opetitsoins.description'),
+      period: t('project.opetitsoins.period'),
+      technologies: ["TypeScript", "React", "Material-UI", "Vercel"],
+      features: [
+        t('project.opetitsoins.feature1'),
+        t('project.opetitsoins.feature2'),
+        t('project.opetitsoins.feature3'),
+        t('project.opetitsoins.feature4')
+      ],
+      links: {
+        github: "https://github.com/joey603/Optitsoins_site.git",
+        demo: "https://optitsoins-site.vercel.app"
+      },
+      category: t('category.showcaseWebsite'),
+      color: "blue"
+    },
+    {
+      title: t('project.elsafitness.title'),
+      description: t('project.elsafitness.description'),
+      period: t('project.elsafitness.period'),
+      technologies: ["TypeScript", "React", "Material-UI", "Vercel"],
+      features: [
+        t('project.elsafitness.feature1'),
+        t('project.elsafitness.feature2'),
+        t('project.elsafitness.feature3'),
+        t('project.elsafitness.feature4')
+      ],
+      links: {
+        github: "https://github.com/joey603/Elsa-Fitness.git",
+        demo: "https://elsa-fitness.vercel.app"
+      },
+      category: t('category.showcaseWebsite'),
+      color: "orange"
     }
   ]
 
@@ -207,7 +243,7 @@ const Projects = () => {
                             className="flex items-center gap-3 p-3 glass-effect rounded-lg hover:bg-white/5 transition-colors"
                           >
                             <ExternalLink size={18} className="text-gray-400 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm sm:text-base">{t('projects.viewDemo')}</span>
+                            <span className="text-gray-300 text-sm sm:text-base">{t('projects.liveDemo')}</span>
                           </motion.a>
                         )}
                       </div>

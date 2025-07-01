@@ -14,9 +14,9 @@ const Experience = () => {
       title: t('exp.education.title'),
       subtitle: t('exp.education.subtitle'),
       company: t('exp.education.company'),
-      location: "Israel",
+      location: t('experience.location.israel'),
       period: t('exp.education.period'),
-      type: t('about.education'),
+      type: t('experience.types.education'),
       description: t('exp.education.desc1'),
       responsibilities: [
         t('exp.education.desc1'),
@@ -24,16 +24,16 @@ const Experience = () => {
         t('exp.education.desc3'),
         t('exp.education.desc4')
       ],
-      skills: ["Software Development", "AI/ML", "Full-Stack Development", "Problem Solving", "Team Collaboration"],
+      skills: [t('skills.softwareDevelopment'), t('skills.aiMl'), t('skills.fullStack'), t('skills.problemSolving'), t('skills.teamwork')],
       icon: GraduationCap,
       color: "purple"
     },
     {
       title: t('exp.security.title'),
       company: t('exp.security.company'),
-      location: "Israel",
+      location: t('experience.location.israel'),
       period: t('exp.security.period'),
-      type: "Leadership",
+      type: t('experience.types.leadership'),
       description: t('exp.security.desc1'),
       responsibilities: [
         t('exp.security.desc1'),
@@ -41,16 +41,16 @@ const Experience = () => {
         t('exp.security.desc3'),
         t('exp.security.desc4')
       ],
-      skills: ["Leadership", "Team Management", "Problem Solving", "Communication", "Responsibility"],
+      skills: [t('skills.leadership'), t('skills.teamManagement'), t('skills.problemSolving'), t('skills.communication'), t('skills.responsibility')],
       icon: Shield,
       color: "blue"
     },
     {
       title: t('exp.military.title'),
       company: t('exp.military.company'),
-      location: "Israel",
+      location: t('experience.location.israel'),
       period: t('exp.military.period'),
-      type: "Technical Service",
+      type: t('experience.types.technical'),
       description: t('exp.military.desc1'),
       responsibilities: [
         t('exp.military.desc1'),
@@ -58,7 +58,7 @@ const Experience = () => {
         t('exp.military.desc3'),
         t('exp.military.desc4')
       ],
-      skills: ["Technical Precision", "Analytical Thinking", "Attention to Detail", "Diagnostics", "Documentation"],
+      skills: [t('skills.technicalPrecision'), t('skills.analyticalThinking'), t('skills.attentionToDetail'), t('skills.diagnostics'), t('skills.documentation')],
       icon: Award,
       color: "green"
     }
@@ -151,7 +151,7 @@ const Experience = () => {
                           {exp.title.includes("Manager") && (
                             <div className="flex items-center gap-2">
                               <Users size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
-                              <span>Team of 5 people</span>
+                              <span>{t('experience.teamSize')}</span>
                             </div>
                           )}
                         </div>
@@ -166,7 +166,7 @@ const Experience = () => {
                         <div>
                           <h5 className="text-base sm:text-lg font-semibold text-white mb-3 flex items-center gap-2">
                             <Briefcase size={16} className="sm:w-[18px] sm:h-[18px]" />
-                            {exp.type === "Education" ? "Key Achievements" : "Main Responsibilities"}
+                            {exp.type === t('experience.types.education') ? t('experience.keyAchievements') : t('experience.mainResponsibilities')}
                           </h5>
                           <ul className="space-y-2">
                             {exp.responsibilities.map((resp, idx) => (
@@ -179,7 +179,7 @@ const Experience = () => {
                         </div>
 
                         <div>
-                          <h5 className="text-base sm:text-lg font-semibold text-white mb-3">Skills Developed</h5>
+                          <h5 className="text-base sm:text-lg font-semibold text-white mb-3">{t('experience.skillsDeveloped')}</h5>
                           <div className="flex flex-wrap gap-2">
                             {exp.skills.map((skill) => (
                               <span

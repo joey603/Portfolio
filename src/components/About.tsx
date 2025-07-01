@@ -88,12 +88,12 @@ const About = () => {
                       <MapPin className="text-green-400" size={20} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-semibold text-white text-sm sm:text-base">Location</h4>
-                      <p className="text-gray-400 text-xs sm:text-sm">Ashdod, Israel</p>
+                      <h4 className="font-semibold text-white text-sm sm:text-base">{t('about.location')}</h4>
+                      <p className="text-gray-400 text-xs sm:text-sm">{t('about.locationValue')}</p>
                     </div>
                   </div>
                   <p className="text-xs sm:text-sm text-gray-400">
-                    Open to remote and international opportunities
+                    {t('about.remoteWork')}
                   </p>
                 </div>
 
@@ -103,12 +103,12 @@ const About = () => {
                       <Award className="text-purple-400" size={20} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-semibold text-white text-sm sm:text-base">Experience</h4>
-                      <p className="text-gray-400 text-xs sm:text-sm">Fresh graduate</p>
+                      <h4 className="font-semibold text-white text-sm sm:text-base">{t('about.experienceTitle')}</h4>
+                      <p className="text-gray-400 text-xs sm:text-sm">{t('about.experienceLevel')}</p>
                     </div>
                   </div>
                   <p className="text-xs sm:text-sm text-gray-400">
-                    Software development and project management
+                    {t('about.experienceDescription')}
                   </p>
                 </div>
 
@@ -118,12 +118,12 @@ const About = () => {
                       <Calendar className="text-orange-400" size={20} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-semibold text-white text-sm sm:text-base">Availability</h4>
-                      <p className="text-gray-400 text-xs sm:text-sm">Immediate</p>
+                      <h4 className="font-semibold text-white text-sm sm:text-base">{t('about.availabilityTitle')}</h4>
+                      <p className="text-gray-400 text-xs sm:text-sm">{t('about.availabilityStatus')}</p>
                     </div>
                   </div>
                   <p className="text-xs sm:text-sm text-gray-400">
-                    Ready for new challenges and opportunities
+                    {t('about.availabilityDescription')}
                   </p>
                 </div>
               </div>

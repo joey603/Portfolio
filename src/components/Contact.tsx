@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { Mail, Phone, MapPin, Github, Linkedin, Send, User, MessageSquare, Download } from 'lucide-react'
+import { Mail, Phone, MapPin, Github, Linkedin, Send, User, MessageSquare, Download, MessageCircle } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 
 const Contact = () => {
@@ -33,7 +33,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: t('contact.location'),
-      value: "Ashdod, Israel",
+      value: t('about.locationValue'),
       href: "https://maps.google.com/?q=Ashdod,Israel",
       color: "purple"
     }
@@ -61,7 +61,7 @@ const Contact = () => {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Create mailto link with form data
     const subject = encodeURIComponent(formData.subject || 'Contact from portfolio')
@@ -69,6 +69,15 @@ const Contact = () => {
       `Hello Yoeli,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`
     )
     window.location.href = `mailto:yoelibarthel603@gmail.com?subject=${subject}&body=${body}`
+  }
+
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Create WhatsApp message
+    const message = encodeURIComponent(
+      `Hello Yoeli,\n\n*Subject:* ${formData.subject || 'Contact from portfolio'}\n\n*Message:* ${formData.message}\n\n*From:* ${formData.name}\n*Email:* ${formData.email}`
+    )
+    window.open(`https://wa.me/972585060398?text=${message}`, '_blank')
   }
 
   const containerVariants = {
@@ -200,13 +209,13 @@ const Contact = () => {
               <div className="glass-effect p-6 sm:p-8 rounded-xl">
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 flex items-center gap-2">
                   <MessageSquare size={20} className="sm:w-6 sm:h-6" />
-                  {t('contact.form')}
+                  {t('contact.form.title')}
                 </h3>
                 
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <form className="space-y-4 sm:space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.name')}
+                      {t('contact.form.name')}
                     </label>
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
@@ -217,7 +226,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors text-sm sm:text-base"
-                        placeholder={t('contact.namePlaceholder')}
+                        placeholder={t('contact.form.namePlaceholder')}
                         required
                       />
                     </div>
@@ -225,7 +234,7 @@ const Contact = () => {
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.email')}
+                      {t('contact.form.email')}
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
@@ -236,7 +245,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors text-sm sm:text-base"
-                        placeholder={t('contact.emailPlaceholder')}
+                        placeholder={t('contact.form.emailPlaceholder')}
                         required
                       />
                     </div>
@@ -244,7 +253,7 @@ const Contact = () => {
 
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.subject')}
+                      {t('contact.form.subject')}
                     </label>
                     <input
                       type="text"
@@ -253,13 +262,13 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors text-sm sm:text-base"
-                      placeholder={t('contact.subjectPlaceholder')}
+                      placeholder={t('contact.form.subjectPlaceholder')}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.message')}
+                      {t('contact.form.message')}
                     </label>
                     <textarea
                       id="message"
@@ -268,20 +277,38 @@ const Contact = () => {
                       onChange={handleInputChange}
                       rows={6}
                       className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors resize-none text-sm sm:text-base"
-                      placeholder={t('contact.messagePlaceholder')}
+                      placeholder={t('contact.form.messagePlaceholder')}
                       required
                     />
                   </div>
 
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full btn-primary py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
-                  >
-                    <Send size={18} />
-                    {t('contact.send')}
-                  </motion.button>
+                  <div className="space-y-4">
+                    <p className="text-sm font-medium text-gray-300 text-center">
+                      {t('contact.form.chooseMethod')}
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <motion.button
+                        type="button"
+                        onClick={handleEmailSubmit}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="btn-primary py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
+                      >
+                        <Mail size={18} />
+                        {t('contact.form.sendEmail')}
+                      </motion.button>
+                      <motion.button
+                        type="button"
+                        onClick={handleWhatsAppSubmit}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="bg-gradient-to-r from-green-500/20 to-green-600/20 border border-green-500/30 text-green-300 hover:bg-green-500/30 py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
+                      >
+                        <MessageCircle size={18} />
+                        {t('contact.form.sendWhatsApp')}
+                      </motion.button>
+                    </div>
+                  </div>
                 </form>
               </div>
             </motion.div>
