@@ -37,13 +37,34 @@ const Projects = () => {
         t('project.sidour.feature1'),
         t('project.sidour.feature2'),
         t('project.sidour.feature3'),
-        t('project.sidour.feature4')
+        t('project.sidour.feature4'),
+        t('project.sidour.feature5')
       ],
       links: {
-        github: "https://github.com/joey603/Sidour-avoda-Tzora-chevron"
+        github: "https://github.com/joey603/Sidour-avoda-Tzora-chevron",
+        demo: "https://github.com/joey603/Sidour_Avoda_V2/actions/runs/16933073654/artifacts/3753289215"
       },
       category: "Desktop Application",
-      color: "green"
+      color: "green",
+      isWindowsDemo: true
+    },
+    {
+      title: t('project.elsafitness.title'),
+      description: t('project.elsafitness.description'),
+      period: t('project.elsafitness.period'),
+      technologies: ["TypeScript", "React", "Material-UI", "Vercel", "Backend"],
+      features: [
+        t('project.elsafitness.feature1'),
+        t('project.elsafitness.feature2'),
+        t('project.elsafitness.feature3'),
+        t('project.elsafitness.feature4')
+      ],
+      links: {
+        github: "https://github.com/joey603/Elsa-Fitness.git",
+        demo: "https://elsa-fitness-v2.vercel.app"
+      },
+      category: t('category.showcaseWebsite'),
+      color: "orange"
     },
     {
       title: t('project.divespot.title'),
@@ -80,24 +101,6 @@ const Projects = () => {
       },
       category: t('category.showcaseWebsite'),
       color: "blue"
-    },
-    {
-      title: t('project.elsafitness.title'),
-      description: t('project.elsafitness.description'),
-      period: t('project.elsafitness.period'),
-      technologies: ["TypeScript", "React", "Material-UI", "Vercel"],
-      features: [
-        t('project.elsafitness.feature1'),
-        t('project.elsafitness.feature2'),
-        t('project.elsafitness.feature3'),
-        t('project.elsafitness.feature4')
-      ],
-      links: {
-        github: "https://github.com/joey603/Elsa-Fitness.git",
-        demo: "https://elsa-fitness.vercel.app"
-      },
-      category: t('category.showcaseWebsite'),
-      color: "orange"
     }
   ]
 
@@ -243,7 +246,9 @@ const Projects = () => {
                             className="flex items-center gap-3 p-3 glass-effect rounded-lg hover:bg-white/5 transition-colors"
                           >
                             <ExternalLink size={18} className="text-gray-400 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm sm:text-base">{t('projects.liveDemo')}</span>
+                            <span className="text-gray-300 text-sm sm:text-base">
+                              {project.isWindowsDemo ? t('projects.liveDemoWindows') : t('projects.liveDemo')}
+                            </span>
                           </motion.a>
                         )}
                       </div>

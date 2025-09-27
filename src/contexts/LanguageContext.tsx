@@ -85,6 +85,7 @@ const translations = {
     'projects.description': 'Some of my recent work and achievements',
     'projects.viewSource': 'View Source',
     'projects.liveDemo': 'Live Demo',
+    'projects.liveDemoWindows': 'Live Demo for Windows',
     'projects.features': 'Key Features:',
     
     // Project Details
@@ -103,6 +104,7 @@ const translations = {
     'project.sidour.feature2': 'Conflict detection and resolution',
     'project.sidour.feature3': 'Employee availability management',
     'project.sidour.feature4': 'Automated report generation',
+    'project.sidour.feature5': 'Automatic update system from the application',
     
     'project.divespot.title': 'DIVESPOT - Social Network',
     'project.divespot.description': 'Social platform dedicated to diving enthusiasts, allowing them to share experiences, discover dive sites and connect with the community.',
@@ -121,15 +123,15 @@ const translations = {
     'project.opetitsoins.feature4': 'Professional healthcare presentation',
     
     'project.elsafitness.title': 'Elsa Fitness - Fitness Website',
-    'project.elsafitness.description': 'Modern showcase website for fitness and wellness services. Clean design focused on promoting fitness programs and personal training services.',
+    'project.elsafitness.description': 'Modern fitness website with course booking system and admin panel. Features a clean design for promoting fitness programs, personal training services, and includes a backend system for course management and reservations.',
     'project.elsafitness.period': '2024',
     'project.elsafitness.feature1': 'Modern and attractive design',
-    'project.elsafitness.feature2': 'Responsive layout for all devices',
-    'project.elsafitness.feature3': 'Service presentation and pricing',
-    'project.elsafitness.feature4': 'Contact and booking integration',
+    'project.elsafitness.feature2': 'Course booking and reservation system',
+    'project.elsafitness.feature3': 'Admin panel for course creation and management',
+    'project.elsafitness.feature4': 'Responsive layout for all devices',
     
     // Categories
-    'category.showcaseWebsite': 'Showcase Website',
+    'category.showcaseWebsite': 'Website',
     
     // Experience Section
     'experience.title': 'My',
@@ -294,6 +296,7 @@ const translations = {
     'projects.description': 'Quelques-uns de mes travaux récents et réalisations',
     'projects.viewSource': 'Voir le Code',
     'projects.liveDemo': 'Démo Live',
+    'projects.liveDemoWindows': 'Démo Live pour Windows',
     'projects.features': 'Fonctionnalités Clés :',
     
     // Project Details
@@ -312,6 +315,7 @@ const translations = {
     'project.sidour.feature2': 'Détection et résolution de conflits',
     'project.sidour.feature3': 'Gestion de la disponibilité des employés',
     'project.sidour.feature4': 'Génération automatique de rapports',
+    'project.sidour.feature5': 'Système de mise à jour automatique depuis l\'application',
     
     'project.divespot.title': 'DIVESPOT - Réseau Social',
     'project.divespot.description': 'Plateforme sociale dédiée aux passionnés de plongée, leur permettant de partager des expériences, découvrir des sites de plongée et se connecter avec la communauté.',
@@ -330,15 +334,15 @@ const translations = {
     'project.opetitsoins.feature4': 'Présentation professionnelle des soins',
     
     'project.elsafitness.title': 'Elsa Fitness - Site de Fitness',
-    'project.elsafitness.description': 'Site vitrine moderne pour services de fitness et bien-être. Design épuré axé sur la promotion de programmes de fitness et services de coaching personnel.',
+    'project.elsafitness.description': 'Site de fitness moderne avec système de réservation de cours et panel d\'administration. Design épuré axé sur la promotion de programmes de fitness et services de coaching personnel, incluant un système backend pour la gestion des cours et réservations.',
     'project.elsafitness.period': '2024',
     'project.elsafitness.feature1': 'Design moderne et attractif',
-    'project.elsafitness.feature2': 'Layout responsive pour tous appareils',
-    'project.elsafitness.feature3': 'Présentation des services et tarifs',
-    'project.elsafitness.feature4': 'Intégration contact et réservation',
+    'project.elsafitness.feature2': 'Système de réservation de cours',
+    'project.elsafitness.feature3': 'Panel d\'administration pour la création et gestion des cours',
+    'project.elsafitness.feature4': 'Layout responsive pour tous appareils',
     
     // Categories
-    'category.showcaseWebsite': 'Site Vitrine',
+    'category.showcaseWebsite': 'Site Web',
     
     // Experience Section
     'experience.title': 'Mon',
@@ -503,6 +507,7 @@ const translations = {
     'projects.description': 'כמה מהעבודות וההישגים האחרונים שלי',
     'projects.viewSource': 'צפה בקוד',
     'projects.liveDemo': 'דמו חי',
+    'projects.liveDemoWindows': 'דמו חי עבור Windows',
     'projects.features': 'תכונות מרכזיות:',
     
     // Project Details
@@ -521,6 +526,7 @@ const translations = {
     'project.sidour.feature2': 'זיהוי ופתרון קונפליקטים',
     'project.sidour.feature3': 'ניהול זמינות עובדים',
     'project.sidour.feature4': 'יצירת דוחות אוטומטית',
+    'project.sidour.feature5': 'מערכת עדכון אוטומטי מהאפליקציה',
     
     'project.divespot.title': 'DIVESPOT - רשת חברתית',
     'project.divespot.description': 'פלטפורמה חברתית המוקדשת לחובבי צלילה, המאפשרת להם לשתף חוויות, לגלות אתרי צלילה ולהתחבר עם הקהילה.',
@@ -539,15 +545,15 @@ const translations = {
     'project.opetitsoins.feature4': 'הצגה מקצועית של שירותי טיפול',
     
     'project.elsafitness.title': 'Elsa Fitness - אתר כושר',
-    'project.elsafitness.description': 'אתר ויטרינה מודרני לשירותי כושר ובריאות. עיצוב נקי המתמקד בקידום תוכניות כושר ושירותי אימון אישי.',
+    'project.elsafitness.description': 'אתר כושר מודרני עם מערכת הזמנת קורסים ופאנל ניהול. עיצוב נקי המתמקד בקידום תוכניות כושר ושירותי אימון אישי, כולל מערכת backend לניהול קורסים והזמנות.',
     'project.elsafitness.period': '2024',
     'project.elsafitness.feature1': 'עיצוב מודרני ומושך',
-    'project.elsafitness.feature2': 'פריסה רספונסיבית לכל המכשירים',
-    'project.elsafitness.feature3': 'הצגת שירותים ותמחור',
-    'project.elsafitness.feature4': 'אינטגרציית קשר והזמנות',
+    'project.elsafitness.feature2': 'מערכת הזמנת קורסים',
+    'project.elsafitness.feature3': 'פאנל ניהול ליצירה וניהול קורסים',
+    'project.elsafitness.feature4': 'פריסה רספונסיבית לכל המכשירים',
     
     // Categories
-    'category.showcaseWebsite': 'אתר ויטרינה',
+    'category.showcaseWebsite': 'אתר אינטרנט',
     
     // Experience Section
     'experience.title': 'הרקע',

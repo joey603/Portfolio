@@ -199,28 +199,7 @@ const Experience = () => {
             </div>
           </div>
 
-          {/* Summary Stats */}
-          <motion.div variants={itemVariants} className="mt-8 sm:mt-12">
-            <div className="glass-effect p-6 sm:p-8 rounded-xl">
-              <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-white">
-                {t('experience.summary')}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">3</div>
-                  <div className="text-xs sm:text-sm text-gray-400">{t('experience.years')}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-2">5+</div>
-                  <div className="text-xs sm:text-sm text-gray-400">{t('experience.team')}</div>
-                </div>
-                <div className="text-center col-span-2 sm:col-span-1">
-                  <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-2">100%</div>
-                  <div className="text-xs sm:text-sm text-gray-400">{t('experience.dedication')}</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+
         </motion.div>
       </div>
     </section>
