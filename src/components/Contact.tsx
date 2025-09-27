@@ -191,7 +191,7 @@ const Contact = () => {
                     {t('contact.availableDesc')}
                   </p>
                   <motion.a
-                    href="/CV_YoeliBarthel.pdf?v=20250927"
+                    href="/CV_YoeliBarthel_v2.pdf?v=20250927"
                     download="CV_YoeliBarthel.pdf"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
