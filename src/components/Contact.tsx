@@ -131,7 +131,14 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Information */}
             <motion.div variants={itemVariants} className="space-y-6 sm:space-y-8">
-              <div className="glass-effect p-6 sm:p-8 rounded-xl">
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -3,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                className="glass-effect p-6 sm:p-8 rounded-xl cursor-pointer"
+              >
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">{t('contact.info')}</h3>
                 <div className="space-y-4 sm:space-y-6">
                   {contactInfo.map((info) => (
@@ -156,10 +163,17 @@ const Contact = () => {
                     </motion.a>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               {/* Social Links */}
-              <div className="glass-effect p-6 sm:p-8 rounded-xl">
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -3,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                className="glass-effect p-6 sm:p-8 rounded-xl cursor-pointer"
+              >
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">{t('contact.social')}</h3>
                 <div className="flex gap-3 sm:gap-4">
                   {socialLinks.map((social) => (
@@ -177,10 +191,17 @@ const Contact = () => {
                     </motion.a>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               {/* Availability */}
-              <div className="glass-effect p-6 sm:p-8 rounded-xl">
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -3,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                className="glass-effect p-6 sm:p-8 rounded-xl cursor-pointer"
+              >
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">{t('contact.availability')}</h3>
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-center gap-3">
@@ -201,12 +222,19 @@ const Contact = () => {
                     {t('contact.downloadCV')}
                   </motion.a>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Contact Form */}
             <motion.div variants={itemVariants}>
-              <div className="glass-effect p-6 sm:p-8 rounded-xl">
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -3,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                className="glass-effect p-6 sm:p-8 rounded-xl cursor-pointer"
+              >
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 flex items-center gap-2">
                   <MessageSquare size={20} className="sm:w-6 sm:h-6" />
                   {t('contact.form.title')}
@@ -310,7 +338,7 @@ const Contact = () => {
                     </div>
                   </div>
                 </form>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>

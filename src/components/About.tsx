@@ -50,7 +50,14 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Left Side - Personal Info */}
             <motion.div variants={itemVariants} className="space-y-6">
-              <div className="glass-effect p-6 sm:p-8 rounded-xl">
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -3,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                className="glass-effect p-6 sm:p-8 rounded-xl cursor-pointer"
+              >
                 <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">{t('about.title')} {t('about.me')}</h3>
                 <p className="text-gray-300 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                   {t('about.description')}
@@ -61,13 +68,20 @@ const About = () => {
                 <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                   {t('about.collaboration')}
                 </p>
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Right Side - Facts & Stats */}
             <motion.div variants={itemVariants} className="space-y-4 sm:space-y-6">
               <div className="grid gap-4 sm:gap-6">
-                <div className="glass-effect p-4 sm:p-6 rounded-xl">
+                <motion.div 
+                  whileHover={{ 
+                    scale: 1.02,
+                    y: -3,
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
+                  className="glass-effect p-4 sm:p-6 rounded-xl cursor-pointer"
+                >
                   <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <div className="p-2 sm:p-3 bg-blue-500/20 rounded-lg flex-shrink-0">
                       <GraduationCap className="text-blue-400" size={20} />
@@ -80,9 +94,16 @@ const About = () => {
                   <p className="text-xs sm:text-sm text-gray-400">
                     {t('about.college')} • 2022-2025
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="glass-effect p-4 sm:p-6 rounded-xl">
+                <motion.div 
+                  whileHover={{ 
+                    scale: 1.02,
+                    y: -3,
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
+                  className="glass-effect p-4 sm:p-6 rounded-xl cursor-pointer"
+                >
                   <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <div className="p-2 sm:p-3 bg-green-500/20 rounded-lg flex-shrink-0">
                       <MapPin className="text-green-400" size={20} />
@@ -95,9 +116,16 @@ const About = () => {
                   <p className="text-xs sm:text-sm text-gray-400">
                     {t('about.remoteWork')}
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="glass-effect p-4 sm:p-6 rounded-xl">
+                <motion.div 
+                  whileHover={{ 
+                    scale: 1.02,
+                    y: -3,
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
+                  className="glass-effect p-4 sm:p-6 rounded-xl cursor-pointer"
+                >
                   <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <div className="p-2 sm:p-3 bg-purple-500/20 rounded-lg flex-shrink-0">
                       <Award className="text-purple-400" size={20} />
@@ -110,9 +138,16 @@ const About = () => {
                   <p className="text-xs sm:text-sm text-gray-400">
                     {t('about.experienceDescription')}
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="glass-effect p-4 sm:p-6 rounded-xl">
+                <motion.div 
+                  whileHover={{ 
+                    scale: 1.02,
+                    y: -3,
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
+                  className="glass-effect p-4 sm:p-6 rounded-xl cursor-pointer"
+                >
                   <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <div className="p-2 sm:p-3 bg-orange-500/20 rounded-lg flex-shrink-0">
                       <Calendar className="text-orange-400" size={20} />
@@ -125,14 +160,21 @@ const About = () => {
                   <p className="text-xs sm:text-sm text-gray-400">
                     {t('about.availabilityDescription')}
                   </p>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
 
           {/* Languages Section */}
           <motion.div variants={itemVariants} className="mt-12 sm:mt-16">
-            <div className="glass-effect p-6 sm:p-8 rounded-xl">
+            <motion.div 
+              whileHover={{ 
+                scale: 1.02,
+                y: -3,
+                transition: { duration: 0.2, ease: "easeOut" }
+              }}
+              className="glass-effect p-6 sm:p-8 rounded-xl cursor-pointer"
+            >
               <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-white">{t('about.languages')}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
                 <div className="text-center">
@@ -151,7 +193,7 @@ const About = () => {
                   <p className="text-purple-400 text-sm">{t('about.native')}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

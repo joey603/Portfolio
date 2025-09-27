@@ -125,7 +125,14 @@ const Experience = () => {
                   {/* Timeline Dot - Adjusted for smaller screens */}
                   <div className="absolute left-4 sm:left-6 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-2 sm:border-4 border-slate-900 hidden md:block" />
                   
-                  <div className="md:ml-16 lg:ml-20 glass-effect p-4 sm:p-6 lg:p-8 rounded-xl">
+                  <motion.div 
+                    whileHover={{ 
+                      scale: 1.02,
+                      y: -3,
+                      transition: { duration: 0.2, ease: "easeOut" }
+                    }}
+                    className="md:ml-16 lg:ml-20 glass-effect p-4 sm:p-6 lg:p-8 rounded-xl cursor-pointer"
+                  >
                     <div className="flex flex-col lg:flex-row lg:items-start gap-4 sm:gap-6">
                       {/* Left Column - Basic Info */}
                       <div className="lg:w-1/3 space-y-3 sm:space-y-4">
@@ -193,7 +200,7 @@ const Experience = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>

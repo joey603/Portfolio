@@ -193,7 +193,12 @@ const Projects = () => {
               <motion.div
                 key={project.title}
                 variants={itemVariants}
-                className="glass-effect p-6 sm:p-8 rounded-xl"
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -5,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                className="glass-effect p-6 sm:p-8 rounded-xl cursor-pointer"
               >
                 <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
                   {/* Project Info */}
