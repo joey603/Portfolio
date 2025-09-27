@@ -130,6 +130,22 @@ const translations = {
     'project.elsafitness.feature3': 'Admin panel for course creation and management',
     'project.elsafitness.feature4': 'Responsive layout for all devices',
     
+    'project.talavidan.title': 'Tal Avidan Website - Professional Runner',
+    'project.talavidan.description': 'Professional website for Tal Avidan, a professional runner with over 12,000 followers on social media. Features modern design showcasing training programs and professional running services.',
+    'project.talavidan.period': '2024',
+    'project.talavidan.feature1': 'Modern and professional design',
+    'project.talavidan.feature2': 'Responsive layout for all devices',
+    'project.talavidan.feature3': 'Professional runner showcase',
+    'project.talavidan.feature4': 'Social media integration',
+    
+    'project.tsahalhelp.title': 'Tsahal Help Organization - Suicide Prevention',
+    'project.tsahalhelp.description': 'Website for a Tsahal soldiers support organization focused on suicide prevention and mental health support. Features resources, contact information, and support services for military personnel and their families.',
+    'project.tsahalhelp.period': '2024',
+    'project.tsahalhelp.feature1': 'Mental health resources and support',
+    'project.tsahalhelp.feature2': 'Crisis intervention information',
+    'project.tsahalhelp.feature3': 'Contact and support services',
+    'project.tsahalhelp.feature4': 'Responsive design for accessibility',
+    
     // Categories
     'category.showcaseWebsite': 'Website',
     
@@ -341,6 +357,22 @@ const translations = {
     'project.elsafitness.feature3': 'Panel d\'administration pour la création et gestion des cours',
     'project.elsafitness.feature4': 'Layout responsive pour tous appareils',
     
+    'project.talavidan.title': 'Tal Avidan Website - Coureur Professionnel',
+    'project.talavidan.description': 'Site professionnel pour Tal Avidan, coureur professionnel avec plus de 12 000 abonnés sur les réseaux sociaux. Design moderne présentant les programmes d\'entraînement et services de course professionnelle.',
+    'project.talavidan.period': '2024',
+    'project.talavidan.feature1': 'Design moderne et professionnel',
+    'project.talavidan.feature2': 'Layout responsive pour tous appareils',
+    'project.talavidan.feature3': 'Présentation du coureur professionnel',
+    'project.talavidan.feature4': 'Intégration des réseaux sociaux',
+    
+    'project.tsahalhelp.title': 'Organisation d\'Aide Tsahal - Prévention du Suicide',
+    'project.tsahalhelp.description': 'Site web pour une organisation de soutien aux soldats de Tsahal axée sur la prévention du suicide et le soutien en santé mentale. Propose des ressources, informations de contact et services de soutien pour le personnel militaire et leurs familles.',
+    'project.tsahalhelp.period': '2024',
+    'project.tsahalhelp.feature1': 'Ressources et soutien en santé mentale',
+    'project.tsahalhelp.feature2': 'Informations d\'intervention de crise',
+    'project.tsahalhelp.feature3': 'Services de contact et de soutien',
+    'project.tsahalhelp.feature4': 'Design responsive pour l\'accessibilité',
+    
     // Categories
     'category.showcaseWebsite': 'Site Web',
     
@@ -551,6 +583,22 @@ const translations = {
     'project.elsafitness.feature2': 'מערכת הזמנת קורסים',
     'project.elsafitness.feature3': 'פאנל ניהול ליצירה וניהול קורסים',
     'project.elsafitness.feature4': 'פריסה רספונסיבית לכל המכשירים',
+    
+    'project.talavidan.title': 'Tal Avidan Website - רץ מקצועי',
+    'project.talavidan.description': 'אתר מקצועי לטל אבידן, רץ מקצועי עם יותר מ-12,000 עוקבים ברשתות החברתיות. עיצוב מודרני המציג תוכניות אימון ושירותי ריצה מקצועיים.',
+    'project.talavidan.period': '2024',
+    'project.talavidan.feature1': 'עיצוב מודרני ומקצועי',
+    'project.talavidan.feature2': 'פריסה רספונסיבית לכל המכשירים',
+    'project.talavidan.feature3': 'הצגת הרץ המקצועי',
+    'project.talavidan.feature4': 'אינטגרציה עם רשתות חברתיות',
+    
+    'project.tsahalhelp.title': 'ארגון עזרה לצה"ל - מניעת התאבדות',
+    'project.tsahalhelp.description': 'אתר לארגון תמיכה בחיילי צה"ל המתמקד במניעת התאבדות ותמיכה בבריאות הנפש. כולל משאבים, פרטי יצירת קשר ושירותי תמיכה לכוח אדם צבאי ולמשפחותיהם.',
+    'project.tsahalhelp.period': '2024',
+    'project.tsahalhelp.feature1': 'משאבים ותמיכה בבריאות הנפש',
+    'project.tsahalhelp.feature2': 'מידע על התערבות במשבר',
+    'project.tsahalhelp.feature3': 'שירותי יצירת קשר ותמיכה',
+    'project.tsahalhelp.feature4': 'עיצוב רספונסיבי לנגישות',
     
     // Categories
     'category.showcaseWebsite': 'אתר אינטרנט',

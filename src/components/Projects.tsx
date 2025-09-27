@@ -101,6 +101,42 @@ const Projects = () => {
       },
       category: t('category.showcaseWebsite'),
       color: "blue"
+    },
+    {
+      title: t('project.talavidan.title'),
+      description: t('project.talavidan.description'),
+      period: t('project.talavidan.period'),
+      technologies: ["TypeScript", "React", "Material-UI"],
+      features: [
+        t('project.talavidan.feature1'),
+        t('project.talavidan.feature2'),
+        t('project.talavidan.feature3'),
+        t('project.talavidan.feature4')
+      ],
+      links: {
+        github: "https://github.com/joey603/Tal-Avidan-Website.git",
+        demo: "https://tal-avidan-website.vercel.app"
+      },
+      category: t('category.showcaseWebsite'),
+      color: "green"
+    },
+    {
+      title: t('project.tsahalhelp.title'),
+      description: t('project.tsahalhelp.description'),
+      period: t('project.tsahalhelp.period'),
+      technologies: ["TypeScript", "React", "Material-UI"],
+      features: [
+        t('project.tsahalhelp.feature1'),
+        t('project.tsahalhelp.feature2'),
+        t('project.tsahalhelp.feature3'),
+        t('project.tsahalhelp.feature4')
+      ],
+      links: {
+        github: "https://github.com/joey603/SOS-SOLDAT.git",
+        demo: "https://sos-soldat.vercel.app"
+      },
+      category: t('category.showcaseWebsite'),
+      color: "purple"
     }
   ]
 
