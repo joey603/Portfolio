@@ -93,8 +93,8 @@ const Hero = () => {
               </motion.a>
               
               <motion.a
-                href="/CV_YoeliBarthel_fixed.pdf?v=20250927"
-                download="CV_YoeliBarthel.pdf"
+                href="/CV_Yoeli Barthel.pdf?v=20250927"
+                download="CV_Yoeli Barthel.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-4 sm:px-6 py-3 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 inline-flex items-center gap-2 justify-center text-sm sm:text-base min-h-[44px] backdrop-blur-sm"
