@@ -93,7 +93,7 @@ const Hero = () => {
               </motion.a>
               
               <motion.a
-                href="/CV_YoeliBarthel_v2.pdf?v=20250927"
+                href="/CV_YoeliBarthel_fixed.pdf?v=20250927"
                 download="CV_YoeliBarthel.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
