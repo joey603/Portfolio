@@ -191,8 +191,8 @@ const Contact = () => {
                     {t('contact.availableDesc')}
                   </p>
                   <motion.a
-                    href="/CV_YoeliBarthel_fixed.pdf?v=20250927"
-                    download="CV_YoeliBarthel.pdf"
+                    href="/CV_Yoeli Barthel.pdf?v=20250927"
+                    download="CV_Yoeli Barthel.pdf"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 text-blue-300 rounded-lg hover:bg-blue-500/30 transition-all duration-300 font-semibold text-sm sm:text-base"
