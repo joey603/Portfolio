@@ -40,7 +40,7 @@ import {
   SiConfluence,
   SiCloudinary
 } from 'react-icons/si'
-import { FaLock, FaLink, FaJava } from 'react-icons/fa'
+import { FaLock, FaLink, FaJava, FaRobot } from 'react-icons/fa'
 
 const Skills = () => {
   const { t } = useLanguage()
@@ -82,6 +82,7 @@ const Skills = () => {
         { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
         { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
         { name: "SQLite", icon: SiSqlite, color: "#003B57" },
+        { name: "Cloudinary", icon: SiCloudinary, color: "#3448C5" },
         { name: "REST API", icon: FaLink, color: "#FF6B6B" },
         { name: "OAuth", icon: FaLock, color: "#4285F4" }
       ]
@@ -96,7 +97,7 @@ const Skills = () => {
         { name: "Jira", icon: SiJira, color: "#0052CC" },
         { name: "Trello", icon: SiTrello, color: "#0079BF" },
         { name: "Confluence", icon: SiConfluence, color: "#172B4D" },
-        { name: "Cloudinary", icon: SiCloudinary, color: "#3448C5" }
+        { name: "Cursor AI", icon: FaRobot, color: "#00D4AA" }
       ]
     }
   ]
