@@ -156,7 +156,7 @@ const Contact = () => {
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="text-gray-400 text-xs sm:text-sm">{info.label}</div>
-                        <div className="text-white font-semibold group-hover:text-accent-400 transition-colors text-sm sm:text-base break-all">
+                        <div className={`text-white font-semibold group-hover:text-accent-400 transition-colors text-sm sm:text-base break-all ${info.label === t('contact.phone') ? 'dir-ltr' : ''}`}>
                           {info.value}
                         </div>
                       </div>

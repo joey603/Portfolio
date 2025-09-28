@@ -89,6 +89,12 @@
     direction: rtl;
   }
 
+  /* Force LTR for phone numbers and other specific elements */
+  .dir-ltr {
+    direction: ltr !important;
+    text-align: left !important;
+  }
+
   .rtl .text-left {
     text-align: right;
   }
