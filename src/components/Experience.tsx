@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Briefcase, Shield, Users, Award, MapPin, Calendar, GraduationCap } from 'lucide-react'
+import { Briefcase, Shield, Users, Award, MapPin, Calendar, GraduationCap, Code } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 
 const Experience = () => {
@@ -27,6 +27,24 @@ const Experience = () => {
       skills: [t('skills.softwareDevelopment'), t('skills.aiMl'), t('skills.fullStack'), t('skills.problemSolving'), t('skills.teamwork')],
       icon: GraduationCap,
       color: "purple"
+    },
+    {
+      title: t('exp.freelance.title'),
+      subtitle: t('exp.freelance.subtitle'),
+      company: t('exp.freelance.company'),
+      location: t('experience.location.remote'),
+      period: t('exp.freelance.period'),
+      type: t('experience.types.freelance'),
+      description: t('exp.freelance.desc1'),
+      responsibilities: [
+        t('exp.freelance.desc1'),
+        t('exp.freelance.desc2'),
+        t('exp.freelance.desc3'),
+        t('exp.freelance.desc4')
+      ],
+      skills: [t('skills.webDevelopment'), t('skills.fullStack'), t('skills.clientManagement'), t('skills.responsiveDesign'), t('skills.userExperience')],
+      icon: Code,
+      color: "orange"
     },
     {
       title: t('exp.security.title'),
