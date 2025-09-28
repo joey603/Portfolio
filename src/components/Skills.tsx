@@ -40,7 +40,17 @@ import {
   SiConfluence,
   SiCloudinary
 } from 'react-icons/si'
-import { FaLock, FaLink, FaJava, FaRobot } from 'react-icons/fa'
+import { FaLock, FaLink, FaJava } from 'react-icons/fa'
+
+// Icône personnalisée pour Cursor AI
+const CursorIcon = ({ size = 24, color = "#00D4AA" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    <circle cx="12" cy="7" r="1" fill={color}/>
+    <circle cx="12" cy="12" r="1" fill={color}/>
+    <circle cx="12" cy="17" r="1" fill={color}/>
+  </svg>
+)
 
 const Skills = () => {
   const { t } = useLanguage()
@@ -97,7 +107,7 @@ const Skills = () => {
         { name: "Jira", icon: SiJira, color: "#0052CC" },
         { name: "Trello", icon: SiTrello, color: "#0079BF" },
         { name: "Confluence", icon: SiConfluence, color: "#172B4D" },
-        { name: "Cursor AI", icon: FaRobot, color: "#00D4AA" }
+        { name: "Cursor AI", icon: CursorIcon, color: "#00D4AA" }
       ]
     }
   ]
