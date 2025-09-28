@@ -149,17 +149,26 @@ const Contact = () => {
                       rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-white/5 transition-colors group"
+                      className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-white/5 transition-colors group ${info.label === t('contact.phone') ? 'flex-row' : ''}`}
                     >
                       <div className={`p-2 sm:p-3 rounded-lg border ${getColorClasses(info.color)} flex-shrink-0`}>
                         <info.icon size={20} className="sm:w-6 sm:h-6" />
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="text-gray-400 text-xs sm:text-sm">{info.label}</div>
-                        <div className={`text-white font-semibold group-hover:text-accent-400 transition-colors text-sm sm:text-base break-all ${info.label === t('contact.phone') ? 'dir-ltr' : ''}`}>
-                          {info.value}
+                      {info.label === t('contact.phone') ? (
+                        <div className="flex items-center justify-between w-full">
+                          <div className="text-gray-400 text-xs sm:text-sm">{info.label}</div>
+                          <div className="text-white font-semibold group-hover:text-accent-400 transition-colors text-sm sm:text-base dir-ltr">
+                            {info.value}
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div className="min-w-0 flex-1">
+                          <div className="text-gray-400 text-xs sm:text-sm">{info.label}</div>
+                          <div className="text-white font-semibold group-hover:text-accent-400 transition-colors text-sm sm:text-base break-all">
+                            {info.value}
+                          </div>
+                        </div>
+                      )}
                     </motion.a>
                   ))}
                 </div>
