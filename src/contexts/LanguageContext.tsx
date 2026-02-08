@@ -34,7 +34,7 @@ const translations = {
     'hero.downloadCV': 'Download CV',
     'hero.stat1': 'Projects Completed',
     'hero.stat2': 'Technologies Mastered',
-    'hero.stat3': 'Fresh graduate',
+    'hero.stat3': 'Graduate',
     
     // About Section
     'about.title': 'About',
@@ -57,7 +57,7 @@ const translations = {
     'about.locationValue': 'Ashdod, Israel',
     'about.remoteWork': 'Open to remote and international opportunities',
     'about.experienceTitle': 'Experience',
-    'about.experienceLevel': 'Fresh graduate',
+    'about.experienceLevel': 'Graduate',
     'about.experienceDescription': 'Software development and project management',
     'about.availabilityTitle': 'Availability',
     'about.availabilityStatus': 'Immediate',
@@ -86,6 +86,10 @@ const translations = {
     'projects.viewSource': 'View Source',
     'projects.liveDemo': 'Live Demo',
     'projects.liveDemoWindows': 'Live Demo for Windows',
+    'projects.linkDesktopApp': 'Desktop app',
+    'projects.linkSaaS': 'SaaS',
+    'projects.downloadDesktopApp': 'Download desktop app',
+    'projects.liveDemoSaaS': 'Live demo SaaS',
     'projects.features': 'Key Features:',
     
     // Project Details
@@ -98,13 +102,17 @@ const translations = {
     'project.surveyflow.feature4': 'Advanced question types and logic',
     
     'project.sidour.title': 'SIDOUR AVODA - Schedule Manager',
-    'project.sidour.description': 'Innovative desktop application designed to optimize and manage work schedules in security environments, with advanced optimization algorithms.',
+    'project.sidour.description': 'Innovative desktop application and SaaS web application to optimize and manage work schedules in security environments. The web app includes a worker menu, a director menu, role management for sites, and support for complex sites.',
     'project.sidour.period': '2025',
+    'project.sidour.usedBy': 'Used by Chevron / G-One',
     'project.sidour.feature1': 'Advanced scheduling algorithms',
     'project.sidour.feature2': 'Conflict detection and resolution',
     'project.sidour.feature3': 'Employee availability management',
     'project.sidour.feature4': 'Automated report generation',
     'project.sidour.feature5': 'Automatic update system from the application',
+    'project.sidour.feature6': 'SaaS web application with worker & director menus',
+    'project.sidour.feature7': 'Role management for sites',
+    'project.sidour.feature8': 'Complex site support',
     
     'project.divespot.title': 'DIVESPOT - Social Network',
     'project.divespot.description': 'Social platform dedicated to diving enthusiasts, allowing them to share experiences, discover dive sites and connect with the community.',
@@ -148,12 +156,13 @@ const translations = {
     
     // Categories
     'category.showcaseWebsite': 'Website',
+    'category.desktopWeb': 'Desktop & Web Application',
     
     // Experience Section
     'experience.title': 'My',
     'experience.subtitle': 'Background',
     'experience.description': 'My educational and professional journey',
-    'experience.stat1': 'Fresh Graduate',
+    'experience.stat1': 'Graduate',
     'experience.stat2': 'Major Projects',
     'experience.stat3': 'Ready to Start',
     'experience.profileSummary': 'Profile Summary',
@@ -169,6 +178,7 @@ const translations = {
     'experience.types.freelance': 'Freelance',
     'experience.types.leadership': 'Leadership',
     'experience.types.technical': 'Technical Service',
+    'experience.types.backend': 'Backend',
     'experience.location.israel': 'Israel',
     'experience.location.remote': 'Remote',
     'experience.teamSize': 'Team of 5 people',
@@ -209,6 +219,15 @@ const translations = {
     'exp.freelance.desc2': 'Full-stack development with React, TypeScript, and Node.js',
     'exp.freelance.desc3': 'Client project management and delivery',
     'exp.freelance.desc4': 'Responsive design and user experience optimization',
+    
+    'exp.julius.title': 'Fullstack',
+    'exp.julius.subtitle': 'Backend focus',
+    'exp.julius.company': 'Julius Agency',
+    'exp.julius.period': '2025 – Currently',
+    'exp.julius.desc1': 'CRM project development and bug fixing. Specialized in backend development with TypeScript, Node.js, Flutter, JavaScript, Prisma and Supabase.',
+    'exp.julius.desc2': 'Development of CRM features and modules',
+    'exp.julius.desc3': 'Bug fixing and code quality improvement',
+    'exp.julius.desc4': 'Backend architecture and API design',
     
     'exp.security.title': 'Security Guard Manager',
     'exp.security.company': 'CHEVRON | G-ONE',
@@ -276,7 +295,7 @@ const translations = {
     'hero.downloadCV': 'Télécharger CV',
     'hero.stat1': 'Projets Terminés',
     'hero.stat2': 'Technologies Maîtrisées',
-    'hero.stat3': 'Diplômé récent',
+    'hero.stat3': 'Diplômé',
     
     // About Section
     'about.title': 'À propos',
@@ -299,7 +318,7 @@ const translations = {
     'about.locationValue': 'Ashdod, Israël',
     'about.remoteWork': 'Ouvert au travail à distance et aux opportunités internationales',
     'about.experienceTitle': 'Expérience',
-    'about.experienceLevel': 'Diplômé récent',
+    'about.experienceLevel': 'Diplômé',
     'about.experienceDescription': 'Développement logiciel et gestion de projet',
     'about.availabilityTitle': 'Disponibilité',
     'about.availabilityStatus': 'Immédiate',
@@ -328,6 +347,10 @@ const translations = {
     'projects.viewSource': 'Voir le Code',
     'projects.liveDemo': 'Démo Live',
     'projects.liveDemoWindows': 'Démo Live pour Windows',
+    'projects.linkDesktopApp': 'Application bureau',
+    'projects.linkSaaS': 'SaaS',
+    'projects.downloadDesktopApp': 'Télécharger l\'application bureau',
+    'projects.liveDemoSaaS': 'Démo live SaaS',
     'projects.features': 'Fonctionnalités Clés :',
     
     // Project Details
@@ -390,16 +413,17 @@ const translations = {
     
     // Categories
     'category.showcaseWebsite': 'Site Web',
+    'category.desktopWeb': 'Application bureau & Web',
     
     // Experience Section
     'experience.title': 'Mon',
     'experience.subtitle': 'Parcours',
     'experience.description': 'Mon parcours éducatif et professionnel',
-    'experience.stat1': 'Diplômé Récent',
+    'experience.stat1': 'Diplômé',
     'experience.stat2': 'Projets Majeurs',
     'experience.stat3': 'Prêt à Commencer',
     'experience.profileSummary': 'Résumé de Profil',
-    'experience.freshGraduate': 'Diplômé Récent',
+    'experience.freshGraduate': 'Diplômé',
     'experience.peopleManaged': 'Personnes Gérées',
     'experience.majorProjects': 'Projets Majeurs',
     'experience.readyToStart': 'Prêt à Commencer',
@@ -411,6 +435,7 @@ const translations = {
     'experience.types.freelance': 'Freelance',
     'experience.types.leadership': 'Leadership',
     'experience.types.technical': 'Service Technique',
+    'experience.types.backend': 'Backend',
     'experience.location.israel': 'Israël',
     'experience.location.remote': 'À distance',
     'experience.teamSize': 'Équipe de 5 personnes',
@@ -518,7 +543,7 @@ const translations = {
     'hero.downloadCV': 'הורד קורות חיים',
     'hero.stat1': 'פרויקטים שהושלמו',
     'hero.stat2': 'טכנולוגיות שנלמדו',
-    'hero.stat3': 'בוגר טרי',
+    'hero.stat3': 'בוגר',
     
     // About Section
     'about.title': 'אודות',
@@ -541,7 +566,7 @@ const translations = {
     'about.locationValue': 'אשדוד, ישראל',
     'about.remoteWork': 'פתוח לעבודה מרחוק והזדמנויות בינלאומיות',
     'about.experienceTitle': 'ניסיון',
-    'about.experienceLevel': 'בוגר טרי',
+    'about.experienceLevel': 'בוגר',
     'about.experienceDescription': 'פיתוח תוכנה וניהול פרויקטים',
     'about.availabilityTitle': 'זמינות',
     'about.availabilityStatus': 'מיידית',
@@ -570,6 +595,10 @@ const translations = {
     'projects.viewSource': 'צפה בקוד',
     'projects.liveDemo': 'דמו חי',
     'projects.liveDemoWindows': 'דמו חי עבור Windows',
+    'projects.linkDesktopApp': 'אפליקציית שולחן עבודה',
+    'projects.linkSaaS': 'SaaS',
+    'projects.downloadDesktopApp': 'הורד אפליקציית שולחן עבודה',
+    'projects.liveDemoSaaS': 'דמו חי SaaS',
     'projects.features': 'תכונות מרכזיות:',
     
     // Project Details
@@ -582,13 +611,17 @@ const translations = {
     'project.surveyflow.feature4': 'סוגי שאלות מתקדמים ולוגיקה',
     
     'project.sidour.title': 'SIDOUR AVODA - מנהל משמרות',
-    'project.sidour.description': 'אפליקציית שולחן עבודה חדשנית המיועדת לייעל ולנהל לוחות זמנים של עבודה בסביבות אבטחה, עם אלגוריתמי אופטימיזציה מתקדמים.',
+    'project.sidour.description': 'אפליקציית שולחן עבודה ואפליקציית ווב SaaS לייעול וניהול לוחות זמנים בסביבות אבטחה. אפליקציית הווב כוללת תפריט עובד, תפריט מנהל, ניהול תפקידים לאתרים ותמיכה באתרים מורכבים.',
     'project.sidour.period': '2025',
+    'project.sidour.usedBy': 'בשימוש אצל Chevron / G-One',
     'project.sidour.feature1': 'אלגוריתמי תכנון מתקדמים',
     'project.sidour.feature2': 'זיהוי ופתרון קונפליקטים',
     'project.sidour.feature3': 'ניהול זמינות עובדים',
     'project.sidour.feature4': 'יצירת דוחות אוטומטית',
     'project.sidour.feature5': 'מערכת עדכון אוטומטי מהאפליקציה',
+    'project.sidour.feature6': 'אפליקציית ווב SaaS עם תפריטי עובד ומנהל',
+    'project.sidour.feature7': 'ניהול תפקידים לאתרים',
+    'project.sidour.feature8': 'תמיכה באתרים מורכבים',
     
     'project.divespot.title': 'DIVESPOT - רשת חברתית',
     'project.divespot.description': 'פלטפורמה חברתית המוקדשת לחובבי צלילה, המאפשרת להם לשתף חוויות, לגלות אתרי צלילה ולהתחבר עם הקהילה.',
@@ -632,16 +665,17 @@ const translations = {
     
     // Categories
     'category.showcaseWebsite': 'אתר אינטרנט',
+    'category.desktopWeb': 'אפליקציית שולחן עבודה וווב',
     
     // Experience Section
     'experience.title': 'הרקע',
     'experience.subtitle': 'שלי',
     'experience.description': 'המסע החינוכי והמקצועי שלי',
-    'experience.stat1': 'בוגר טרי',
+    'experience.stat1': 'בוגר',
     'experience.stat2': 'פרויקטים מרכזיים',
     'experience.stat3': 'מוכן להתחיל',
     'experience.profileSummary': 'סיכום פרופיל מקצועי',
-    'experience.freshGraduate': 'בוגר טרי',
+    'experience.freshGraduate': 'בוגר',
     'experience.peopleManaged': 'אנשים בניהול',
     'experience.majorProjects': 'פרויקטים מרכזיים',
     'experience.readyToStart': 'מוכן להתחיל',
@@ -653,6 +687,7 @@ const translations = {
     'experience.types.freelance': 'פרילנס',
     'experience.types.leadership': 'מנהיגות',
     'experience.types.technical': 'שירות טכני',
+    'experience.types.backend': 'בקאנד',
     'experience.location.israel': 'ישראל',
     'experience.location.remote': 'מרחוק',
     'experience.teamSize': 'צוות של 5 אנשים',
@@ -693,6 +728,15 @@ const translations = {
     'exp.freelance.desc2': 'פיתוח full-stack עם React, TypeScript ו-Node.js',
     'exp.freelance.desc3': 'ניהול פרויקטי לקוחות ומסירה',
     'exp.freelance.desc4': 'עיצוב רספונסיבי ואופטימיזציה של חוויית המשתמש',
+    
+    'exp.julius.title': 'Fullstack',
+    'exp.julius.subtitle': 'התמחות בבקאנד',
+    'exp.julius.company': 'Julius Agency',
+    'exp.julius.period': '2025 – כיום',
+    'exp.julius.desc1': 'פיתוח פרויקט CRM ותיקון באגים. מתמחה בפיתוח בקאנד עם TypeScript, Node.js, Flutter, JavaScript, Prisma ו-Supabase.',
+    'exp.julius.desc2': 'פיתוח תכונות ומודולי CRM',
+    'exp.julius.desc3': 'תיקון באגים ושיפור איכות הקוד',
+    'exp.julius.desc4': 'ארכיטקטורת בקאנד ועיצוב API',
     
     'exp.security.title': 'מנהל אבטחה',
     'exp.security.company': 'CHEVRON | G-ONE',

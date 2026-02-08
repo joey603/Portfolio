@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { ExternalLink, Github, Calendar, Users, Code, Database } from 'lucide-react'
+import { ExternalLink, Github, Calendar, Users, Code, Database, Download } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 
 const Projects = () => {
@@ -33,20 +33,25 @@ const Projects = () => {
       description: t('project.sidour.description'),
       period: t('project.sidour.period'),
       technologies: ["Python", "Tkinter", "SQLite", "Pandas", "PyInstaller"],
+      technologiesWeb: ["Next.js", "React", "TypeScript", "Vercel", "shadcn", "PostgreSQL", "AI creation"],
       features: [
         t('project.sidour.feature1'),
         t('project.sidour.feature2'),
         t('project.sidour.feature3'),
         t('project.sidour.feature4'),
-        t('project.sidour.feature5')
+        t('project.sidour.feature5'),
+        t('project.sidour.feature6'),
+        t('project.sidour.feature7'),
+        t('project.sidour.feature8')
       ],
       links: {
         github: "https://github.com/joey603/Sidour-avoda-Tzora-chevron",
-        demo: "https://github.com/joey603/Sidour_Avoda_V2/actions/runs/16933073654/artifacts/3753289215"
+        desktop: "https://github.com/joey603/Sidour_Avoda_V2/actions/runs/16933073654/artifacts/3753289215",
+        saas: "https://sidour-avoda-website.vercel.app"
       },
-      category: "Desktop Application",
+      category: t('category.desktopWeb'),
       color: "green",
-      isWindowsDemo: true
+      usedBy: t('project.sidour.usedBy')
     },
     {
       title: t('project.elsafitness.title'),
@@ -219,6 +224,11 @@ const Projects = () => {
                         <Calendar size={14} className="sm:w-4 sm:h-4" />
                         <span>{project.period}</span>
                       </div>
+                      {'usedBy' in project && project.usedBy && (
+                        <div className="flex items-center gap-2 text-green-400/90 font-medium">
+                          <span>{project.usedBy}</span>
+                        </div>
+                      )}
                       {project.title.includes("équipe") && (
                         <div className="flex items-center gap-2">
                           <Users size={14} className="sm:w-4 sm:h-4" />
@@ -260,6 +270,14 @@ const Projects = () => {
                             {tech}
                           </span>
                         ))}
+                        {'technologiesWeb' in project && project.technologiesWeb?.map((tech: string) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 sm:px-3 sm:py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs sm:text-sm border border-blue-500/40"
+                          >
+                            {tech}
+                          </span>
+                        ))}
                       </div>
                     </div>
 
@@ -277,7 +295,33 @@ const Projects = () => {
                           <Github size={18} className="text-gray-400 flex-shrink-0" />
                           <span className="text-gray-300 text-sm sm:text-base">{t('projects.viewSource')}</span>
                         </motion.a>
-                        {project.links.demo && (
+                        {'desktop' in project.links && project.links.desktop && (
+                          <motion.a
+                            href={project.links.desktop}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="flex items-center gap-3 p-3 glass-effect rounded-lg hover:bg-white/5 transition-colors"
+                          >
+                            <Download size={18} className="text-gray-400 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm sm:text-base">{t('projects.downloadDesktopApp')}</span>
+                          </motion.a>
+                        )}
+                        {'saas' in project.links && project.links.saas && (
+                          <motion.a
+                            href={project.links.saas}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="flex items-center gap-3 p-3 glass-effect rounded-lg hover:bg-white/5 transition-colors"
+                          >
+                            <ExternalLink size={18} className="text-gray-400 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm sm:text-base">{t('projects.liveDemoSaaS')}</span>
+                          </motion.a>
+                        )}
+                        {!('desktop' in project.links) && project.links.demo && (
                           <motion.a
                             href={project.links.demo}
                             target="_blank"
@@ -288,7 +332,7 @@ const Projects = () => {
                           >
                             <ExternalLink size={18} className="text-gray-400 flex-shrink-0" />
                             <span className="text-gray-300 text-sm sm:text-base">
-                              {project.isWindowsDemo ? t('projects.liveDemoWindows') : t('projects.liveDemo')}
+                              {t('projects.liveDemo')}
                             </span>
                           </motion.a>
                         )}

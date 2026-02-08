@@ -2,15 +2,12 @@ import { motion } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import FloatingCube from './3D/FloatingCube'
-import { ChevronDown, Download, Eye } from 'lucide-react'
+import { Download, Eye } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 
 const Hero = () => {
   const { t } = useLanguage()
   
-  const scrollToNext = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -103,24 +100,6 @@ const Hero = () => {
                 <span>{t('hero.downloadCV')}</span>
               </motion.a>
             </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="mt-6 sm:mt-8 md:mt-12 grid grid-cols-3 xs:flex xs:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8"
-            >
-              <div className="text-center">
-                <div className="text-lg xs:text-xl sm:text-2xl font-bold text-white mb-1">5+</div>
-                <div className="text-xs sm:text-sm text-gray-400 leading-tight">{t('hero.stat1')}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg xs:text-xl sm:text-2xl font-bold text-white mb-1">3+</div>
-                <div className="text-xs sm:text-sm text-gray-400 leading-tight">{t('hero.stat2')}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg xs:text-xl sm:text-2xl font-bold text-white mb-1">2025</div>
-                <div className="text-xs sm:text-sm text-gray-400 leading-tight">{t('hero.stat3')}</div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Right Side - 3D Animation */}
@@ -177,17 +156,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator - Better positioned for mobile */}
-      <motion.button
-        onClick={scrollToNext}
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-3 xs:bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/5 backdrop-blur-sm"
-        aria-label="Scroll to next section"
-      >
-        <ChevronDown size={20} className="xs:w-6 xs:h-6 sm:w-8 sm:h-8" />
-      </motion.button>
     </section>
   )
 }

@@ -29,6 +29,23 @@ const Experience = () => {
       color: "purple"
     },
     {
+      title: t('exp.julius.title'),
+      subtitle: t('exp.julius.subtitle'),
+      company: t('exp.julius.company'),
+      location: t('experience.location.remote'),
+      period: t('exp.julius.period'),
+      type: t('experience.types.backend'),
+      description: t('exp.julius.desc1'),
+      responsibilities: [
+        t('exp.julius.desc2'),
+        t('exp.julius.desc3'),
+        t('exp.julius.desc4')
+      ],
+      skills: ['TypeScript', 'Node.js', 'Flutter', 'JavaScript', 'Prisma', 'Supabase', 'Backend'],
+      icon: Code,
+      color: "blue"
+    },
+    {
       title: t('exp.freelance.title'),
       subtitle: t('exp.freelance.subtitle'),
       company: t('exp.freelance.company'),
