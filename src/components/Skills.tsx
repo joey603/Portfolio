@@ -109,6 +109,19 @@ const Skills = () => {
         { name: "Confluence", icon: SiConfluence, color: "#172B4D" },
         { name: "Cursor AI", icon: CursorIcon, color: "#00D4AA" }
       ]
+    },
+    {
+      title: t('skills.testingQa'),
+      color: "blue",
+      icon: Bug,
+      skills: [
+        { name: "QA Testing", icon: Bug, color: "#60A5FA" },
+        { name: "Jest", icon: Bug, color: "#C21325" },
+        { name: "Playwright", icon: Target, color: "#2EAD33" },
+        { name: "Test Cases", icon: FileText, color: "#A78BFA" },
+        { name: "Bug Reports", icon: Bug, color: "#F97316" },
+        { name: "Regression Testing", icon: GitBranch, color: "#22C55E" }
+      ]
     }
   ]
 
@@ -119,7 +132,7 @@ const Skills = () => {
     { name: t('skills.adaptability'), icon: Zap },
     { name: t('skills.leadership'), icon: Target },
     { name: t('skills.projectManagement'), icon: FileText },
-    { name: "Testing & Debugging", icon: Bug },
+    { name: t('skills.testingDebugging'), icon: Bug },
     { name: "CI/CD", icon: GitBranch }
   ]
 

@@ -1,31 +1,24 @@
 import { motion } from 'framer-motion'
-import { Canvas } from '@react-three/fiber'
-import { Suspense } from 'react'
 import { LanguageProvider } from './contexts/LanguageContext'
 import Header from './components/Header.tsx'
 import Hero from './components/Hero.tsx'
 import About from './components/About.tsx'
 import Skills from './components/Skills.tsx'
 import Projects from './components/Projects.tsx'
+import JobMatch from './components/JobMatch.tsx'
 import Experience from './components/Experience.tsx'
 import Contact from './components/Contact.tsx'
-import BackgroundScene from './components/3D/BackgroundScene.tsx'
 
 function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 bg-fallback">
-        {/* Background 3D Scene */}
-        <div className="fixed inset-0 -z-10 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 bg-fallback">
-          <Canvas 
-            camera={{ position: [0, 0, 5], fov: 60 }}
-            style={{ background: 'transparent' }}
-            gl={{ alpha: true, antialias: true }}
-          >
-            <Suspense fallback={null}>
-              <BackgroundScene />
-            </Suspense>
-          </Canvas>
+      <div className="min-h-screen relative bg-slate-950">
+        {/* Modern CSS background: aurora glows + subtle grid */}
+        <div className="fixed inset-0 -z-10 overflow-hidden bg-slate-950">
+          <div className="aurora aurora-1" />
+          <div className="aurora aurora-2" />
+          <div className="aurora aurora-3" />
+          <div className="bg-grid absolute inset-0" />
         </div>
 
         {/* Main Content */}
@@ -41,6 +34,7 @@ function App() {
             <About />
             <Skills />
             <Projects />
+            <JobMatch />
             <Experience />
             <Contact />
           </main>
@@ -50,4 +44,4 @@ function App() {
   )
 }
 
-export default App 
+export default App

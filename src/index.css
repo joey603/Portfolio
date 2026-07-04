@@ -8,22 +8,21 @@
   }
   
   body {
-    @apply bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white font-sans;
+    @apply bg-slate-950 text-white font-sans;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     overflow-x: hidden;
-    background-attachment: fixed;
   }
 
   html {
     scroll-behavior: smooth;
-    @apply bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900;
+    @apply bg-slate-950;
   }
 
   #root {
     min-height: 100vh;
-    @apply bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900;
+    @apply bg-slate-950;
   }
 }
 
@@ -33,7 +32,7 @@
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-red-600 via-red-800 to-red-900 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500 bg-clip-text text-transparent;
   }
   
   .btn-primary {
@@ -44,15 +43,51 @@
     @apply px-4 py-16 sm:px-6 sm:py-20 md:px-8 lg:px-12 xl:px-24;
   }
 
-  /* Fix for Canvas rendering issues */
-  canvas {
-    display: block !important;
-    background: transparent !important;
+  /* Aurora background glows */
+  .aurora {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(120px);
+    opacity: 0.35;
+    will-change: transform;
   }
 
-  /* Ensure consistent background */
-  .bg-fallback {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%) !important;
+  .aurora-1 {
+    width: 55vw;
+    height: 55vw;
+    top: -20%;
+    left: -10%;
+    background: radial-gradient(circle, #1d4ed8 0%, transparent 70%);
+    animation: aurora-drift 24s ease-in-out infinite alternate;
+  }
+
+  .aurora-2 {
+    width: 45vw;
+    height: 45vw;
+    bottom: -15%;
+    right: -10%;
+    background: radial-gradient(circle, #7c3aed 0%, transparent 70%);
+    animation: aurora-drift 30s ease-in-out infinite alternate-reverse;
+  }
+
+  .aurora-3 {
+    width: 35vw;
+    height: 35vw;
+    top: 40%;
+    left: 50%;
+    background: radial-gradient(circle, #0ea5e9 0%, transparent 70%);
+    opacity: 0.15;
+    animation: aurora-drift 36s ease-in-out infinite alternate;
+  }
+
+  /* Subtle grid overlay */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
   }
 
   /* Mobile-specific improvements */
@@ -68,7 +103,7 @@
     /* Ensure text is readable on small screens */
     .gradient-text {
       @apply text-transparent;
-      background: linear-gradient(to right, #dc2626, #991b1b, #7f1d1d);
+      background: linear-gradient(to right, #60a5fa, #3b82f6, #8b5cf6);
       -webkit-background-clip: text;
       background-clip: text;
     }
@@ -154,6 +189,21 @@
     html {
       scroll-padding-top: 80px; /* Account for fixed header */
     }
+  }
+}
+
+@keyframes aurora-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6vw, 4vh, 0) scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora {
+    animation: none;
   }
 }
 

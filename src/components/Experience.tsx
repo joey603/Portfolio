@@ -22,9 +22,10 @@ const Experience = () => {
         t('exp.education.desc1'),
         t('exp.education.desc2'),
         t('exp.education.desc3'),
-        t('exp.education.desc4')
+        t('exp.education.desc4'),
+        t('exp.education.desc5')
       ],
-      skills: [t('skills.softwareDevelopment'), t('skills.aiMl'), t('skills.fullStack'), t('skills.problemSolving'), t('skills.teamwork')],
+      skills: [t('skills.softwareDevelopment'), t('skills.aiMl'), t('skills.fullStack'), t('skills.testingQa'), t('skills.problemSolving'), t('skills.teamwork')],
       icon: GraduationCap,
       color: "purple"
     },
@@ -39,9 +40,10 @@ const Experience = () => {
       responsibilities: [
         t('exp.julius.desc2'),
         t('exp.julius.desc3'),
-        t('exp.julius.desc4')
+        t('exp.julius.desc4'),
+        t('exp.julius.desc5')
       ],
-      skills: ['TypeScript', 'Node.js', 'Flutter', 'JavaScript', 'Prisma', 'Supabase', 'Backend'],
+      skills: ['TypeScript', 'Node.js', 'Flutter', 'JavaScript', 'Prisma', 'Supabase', 'Backend', 'QA', 'Bug reports'],
       icon: Code,
       color: "blue"
     },
@@ -57,9 +59,10 @@ const Experience = () => {
         t('exp.freelance.desc1'),
         t('exp.freelance.desc2'),
         t('exp.freelance.desc3'),
-        t('exp.freelance.desc4')
+        t('exp.freelance.desc4'),
+        t('exp.freelance.desc5')
       ],
-      skills: [t('skills.webDevelopment'), t('skills.fullStack'), t('skills.clientManagement'), t('skills.responsiveDesign'), t('skills.userExperience')],
+      skills: [t('skills.webDevelopment'), t('skills.fullStack'), t('skills.clientManagement'), t('skills.responsiveDesign'), t('skills.userExperience'), t('skills.testingQa')],
       icon: Code,
       color: "orange"
     },
@@ -122,7 +125,8 @@ const Experience = () => {
     const colors = {
       blue: "from-blue-500 to-blue-600 bg-blue-500/20 border-blue-500/30 text-blue-400",
       green: "from-green-500 to-green-600 bg-green-500/20 border-green-500/30 text-green-400",
-      purple: "from-purple-500 to-purple-600 bg-purple-500/20 border-purple-500/30 text-purple-400"
+      purple: "from-purple-500 to-purple-600 bg-purple-500/20 border-purple-500/30 text-purple-400",
+      orange: "from-orange-500 to-orange-600 bg-orange-500/20 border-orange-500/30 text-orange-400"
     }
     return colors[color as keyof typeof colors] || colors.blue
   }
