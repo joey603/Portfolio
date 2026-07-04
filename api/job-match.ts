@@ -1,20 +1,4 @@
-const profileContext = `
-Yoeli Barthel is a software engineer specialized in AI and modern web development.
-Core skills: React, TypeScript, JavaScript, Node.js, Python, REST APIs, OAuth, MongoDB, PostgreSQL, SQLite, Prisma, Supabase, responsive UI/UX, debugging, CRM features, QA, manual testing, functional testing, regression testing, test cases, bug reports, Jest, Playwright, client delivery and team leadership.
-Projects:
-- SurveyFlow: survey platform with React, Next.js, Node.js, MongoDB, OAuth, REST API, analytics and QA validation.
-- Sidour Avoda: Python desktop app and Next.js SaaS for scheduling, role management and complex sites, used by Chevron / G-One, with workflow testing and regression checks.
-- Elsa Fitness: TypeScript/React fitness site with course booking, admin panel, backend and functional QA.
-- DiveSpot: React/Node/MongoDB social network with community features and team QA/bug reporting.
-- Opetitsoins: bilingual healthcare website with responsive UI, forms and functional testing.
-- Julius Agency CRM: TypeScript, Node.js, Prisma and Supabase backend work, CRM features, bug fixing, QA validation and issue reproduction.
-Experience: B.Sc. Software Engineering / computer engineering background with AI specialization, completed QA training, freelance web developer, full-stack/backend work, QA on personal projects, QA at Julius Agency, QA in freelance projects, QA on final engineering project, security team leadership, military technical service.
-QA seniority rule: count QA experience across freelance work (2024-2025), Julius Agency full-stack/backend work (2025-current), personal projects, and the final engineering project. Do not say "exact QA years not specified"; say that QA experience spans those periods instead.
-Mobile/high-pressure context: Yoeli has responsive and cross-device web QA experience. He also has high-pressure experience from security leadership, military technical service, production bug fixing and urgent delivery contexts.
-Specific internal systems rule: proprietary/core systems such as פנינה, דלפי, אודם, or company-specific tools should not significantly reduce the score. Do not put them in gaps unless the job explicitly says prior hands-on experience with that exact system is mandatory. Treat them as onboarding items in the suggestion.
-Mobile testing rule: treat responsive and cross-device web QA as relevant mobile testing experience. Do not put mobile testing in gaps unless the job explicitly requires native iOS/Android app testing, Appium, device farms, or mobile-store release QA.
-SCE engineering curriculum context: strong foundations in mathematics, programming languages, data structures, algorithms, randomized algorithms, complexity, database systems, software development methodologies, advanced software project management, software quality evaluation, final projects, distributed systems, cloud computing, network reliability, network security, cybersecurity, artificial intelligence and data science.
-`
+import { aiProfileContext } from '../src/data/aiProfileContext'
 
 const fallbackResponse = {
   error: 'AI provider is temporarily unavailable. Falling back to local matching.'
@@ -43,12 +27,18 @@ const sanitizeInsight = (insight: any, jobPost: string) => {
     const isInternalSystemGap = /פנינה|דלפי|אודם|internal core system|proprietary|company-specific/i.test(gap)
     const isGenericMobileGap = /mobile/i.test(normalizedGap)
     const isSoftGap = /high-pressure|pressure|deadline|tight|years? not specified|exact qa years/i.test(normalizedGap)
+    const isCoveredProcessGap = /git|github|jira|agile|scrum|postman|ci\/?cd|vercel|next\.?js|language|french|hebrew|english/i.test(normalizedGap)
 
     if (isInternalSystemGap && !explicitlyMandatoryInternalSystem) return false
     if (isGenericMobileGap && !requiresNativeMobile) return false
     if (isSoftGap) return false
+    if (isCoveredProcessGap) return false
     return true
   })
+
+  const tips = Array.isArray(insight.tips)
+    ? insight.tips.filter((tip: unknown) => typeof tip === 'string' && tip.trim().length > 0).slice(0, 4)
+    : []
 
   const summary = !explicitlyMandatoryInternalSystem && /internal core systems|פנינה|דלפי|אודם/i.test(String(insight.summary || ''))
     ? String(insight.summary).replace(/(?:He|Yoeli) lacks direct experience with the specified internal core systems\.?/i, 'Specific internal systems can be handled as onboarding items.')
@@ -58,6 +48,7 @@ const sanitizeInsight = (insight: any, jobPost: string) => {
     ...insight,
     summary,
     gaps: filteredGaps,
+    tips,
     recommendation: filteredGaps.length === 0 && insight.recommendation === 'maybe'
       ? 'yes'
       : insight.recommendation
@@ -78,18 +69,19 @@ export default async function handler(req: any, res: any) {
 You are an honest recruiting assistant for a portfolio website.
 Analyze whether Yoeli matches the job post below using only the profile context.
 Prioritize hard technical requirements in the score. Do not over-penalize soft skills, domain-specific internal systems, or vague experience wording.
-Only put items in "gaps" if they are mandatory hard technical requirements clearly not covered by the profile. For soft skills, mobile testing, pressure/deadlines, years wording, or proprietary systems, prefer mentioning them in "suggestion" as onboarding/clarification items. Never include "exact QA years not specified", proprietary systems, high-pressure work, or generic mobile testing as gaps.
+Only put items in "gaps" if they are mandatory hard technical requirements clearly not covered by the profile. For soft skills, mobile testing, pressure/deadlines, years wording, proprietary systems, Git, Jira, Agile, Postman, Next.js, CI/CD/Vercel or languages already covered by the profile, prefer mentioning them in "tips" as presentation advice. Never include "exact QA years not specified", proprietary systems, high-pressure work, or generic mobile testing as gaps.
 Return strict JSON with this shape:
 {
   "summary": "2 short sentences",
   "recommendation": "yes | maybe | no",
   "strongPoints": ["..."],
   "gaps": ["..."],
-  "suggestion": "one practical sentence for the recruiter or candidate"
+  "suggestion": "one practical sentence for the recruiter or candidate",
+  "tips": ["up to 4 short tips to present the profile better for this specific job"]
 }
 
 Profile context:
-${profileContext}
+${aiProfileContext}
 
 Job post:
 ${jobPost}
@@ -116,7 +108,7 @@ ${jobPost}
           }
         ],
         temperature: 0.2,
-        max_tokens: 700
+        max_tokens: 800
       })
     })
 

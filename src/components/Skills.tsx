@@ -38,7 +38,9 @@ import {
   SiJira,
   SiTrello,
   SiConfluence,
-  SiCloudinary
+  SiCloudinary,
+  SiPostman,
+  SiVercel
 } from 'react-icons/si'
 import { FaLock, FaLink, FaJava } from 'react-icons/fa'
 
@@ -107,6 +109,7 @@ const Skills = () => {
         { name: "Jira", icon: SiJira, color: "#0052CC" },
         { name: "Trello", icon: SiTrello, color: "#0079BF" },
         { name: "Confluence", icon: SiConfluence, color: "#172B4D" },
+        { name: "Vercel", icon: SiVercel, color: "#000000" },
         { name: "Cursor AI", icon: CursorIcon, color: "#00D4AA" }
       ]
     },
@@ -118,6 +121,7 @@ const Skills = () => {
         { name: "QA Testing", icon: Bug, color: "#60A5FA" },
         { name: "Jest", icon: Bug, color: "#C21325" },
         { name: "Playwright", icon: Target, color: "#2EAD33" },
+        { name: "Postman", icon: SiPostman, color: "#FF6C37" },
         { name: "Test Cases", icon: FileText, color: "#A78BFA" },
         { name: "Bug Reports", icon: Bug, color: "#F97316" },
         { name: "Regression Testing", icon: GitBranch, color: "#22C55E" }
@@ -133,6 +137,7 @@ const Skills = () => {
     { name: t('skills.leadership'), icon: Target },
     { name: t('skills.projectManagement'), icon: FileText },
     { name: t('skills.testingDebugging'), icon: Bug },
+    { name: t('skills.agile'), icon: Target },
     { name: "CI/CD", icon: GitBranch }
   ]
 

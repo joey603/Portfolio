@@ -8,6 +8,7 @@ import Projects from './components/Projects.tsx'
 import JobMatch from './components/JobMatch.tsx'
 import Experience from './components/Experience.tsx'
 import Contact from './components/Contact.tsx'
+import AiMatchFab from './components/AiMatchFab.tsx'
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Experience />
             <Contact />
           </main>
+          <AiMatchFab />
         </motion.div>
       </div>
     </LanguageProvider>

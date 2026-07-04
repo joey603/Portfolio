@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Bot, Brain, CheckCircle2, Loader2, Sparkles, Target, XCircle } from 'lucide-react'
+import { Bot, Brain, CheckCircle2, Lightbulb, Loader2, Sparkles, Target, XCircle } from 'lucide-react'
 import { analyzeJobPost, MatchResult } from '../data/profileMatchData'
 import { useLanguage } from '../contexts/LanguageContext'
 
@@ -10,6 +10,7 @@ interface AiInsight {
   strongPoints: string[]
   gaps: string[]
   suggestion: string
+  tips?: string[]
 }
 
 const exampleJobPost = `We are looking for a junior full-stack developer with React, TypeScript and Node.js experience. The role includes building responsive interfaces, REST APIs, database integrations, debugging production issues and collaborating with a product team. Experience with SaaS products, dashboards or AI projects is a plus.`
@@ -35,10 +36,15 @@ const sanitizeAiInsight = (insight: AiInsight, jobPost: string): AiInsight => {
     ? insight.summary.replace(/(?:He|Yoeli) lacks direct experience with the specified internal core systems\.?/i, 'Specific internal systems can be handled as onboarding items.')
     : insight.summary
 
+  const tips = Array.isArray(insight.tips)
+    ? insight.tips.filter((tip) => tip.trim().length > 0).slice(0, 4)
+    : []
+
   return {
     ...insight,
     summary,
     gaps,
+    tips,
     recommendation: gaps.length === 0 && insight.recommendation === 'maybe'
       ? 'yes'
       : insight.recommendation
@@ -99,6 +105,15 @@ const JobMatch = () => {
     if (aiInsight?.summary) return aiInsight.summary
     return t(`jobMatch.summary.${result.verdictLevel}`)
   }, [aiInsight, result, t])
+
+  const improvementTips = useMemo(() => {
+    if (!result) return []
+    const tips = [
+      ...(aiInsight?.tips || []),
+      ...result.improvementTips
+    ]
+    return Array.from(new Set(tips.map((tip) => tip.trim()).filter(Boolean))).slice(0, 4)
+  }, [aiInsight, result])
 
   const handleAnalyze = async () => {
     if (!canAnalyze) return
@@ -260,6 +275,23 @@ const JobMatch = () => {
                       {aiInsight?.suggestion}
                     </p>
                   </div>
+
+                  {improvementTips.length > 0 && (
+                    <div className="rounded-xl border border-purple-500/20 bg-purple-500/5 p-4">
+                      <div className="flex items-center gap-2 text-sm font-semibold text-purple-300 mb-3">
+                        <Lightbulb size={16} />
+                        {t('jobMatch.tipsTitle')}
+                      </div>
+                      <ul className="space-y-2 text-sm text-gray-300">
+                        {improvementTips.map((tip) => (
+                          <li key={tip} className="flex gap-2">
+                            <Sparkles size={16} className="text-purple-400 shrink-0 mt-0.5" />
+                            <span>{tip}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   <div>
                     <h4 className="font-bold text-white mb-3">{t('jobMatch.matchedSkills')}</h4>

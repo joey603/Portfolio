@@ -81,6 +81,7 @@ const translations = {
     'skills.adaptability': 'Adaptability',
     'skills.leadership': 'Leadership',
     'skills.testingDebugging': 'Testing & Debugging',
+    'skills.agile': 'Agile / Scrum',
     
     // Projects Section
     'projects.title': 'My',
@@ -119,6 +120,7 @@ const translations = {
     'jobMatch.relevantProjects': 'Relevant projects',
     'jobMatch.strengths': 'Strong points',
     'jobMatch.gaps': 'Possible gaps',
+    'jobMatch.tipsTitle': 'How to present better for this role',
     'jobMatch.none': 'No direct match detected yet.',
     'jobMatch.noProjects': 'No project is strongly connected to this job post yet.',
     'jobMatch.noMajorGaps': 'No major gap detected from the available text.',
@@ -260,9 +262,9 @@ const translations = {
     'exp.freelance.period': '2024-2025',
     'exp.freelance.desc1': 'Development of modern web applications and websites',
     'exp.freelance.desc2': 'Full-stack development with React, TypeScript, and Node.js',
-    'exp.freelance.desc3': 'Client project management and delivery',
+    'exp.freelance.desc3': 'Client project management and delivery with Git/GitHub workflows',
     'exp.freelance.desc4': 'Responsive design and user experience optimization',
-    'exp.freelance.desc5': 'Manual QA, functional testing, regression checks and bug reporting on client and personal projects',
+    'exp.freelance.desc5': 'QA across freelance projects (2024-2025): manual testing, functional checks, regression, Postman/API validation and bug reporting',
     
     'exp.julius.title': 'Fullstack',
     'exp.julius.subtitle': 'Backend focus',
@@ -270,9 +272,9 @@ const translations = {
     'exp.julius.period': '2025 – Currently',
     'exp.julius.desc1': 'CRM project development and bug fixing. Specialized in backend development with TypeScript, Node.js, Flutter, JavaScript, Prisma and Supabase.',
     'exp.julius.desc2': 'Development of CRM features and modules',
-    'exp.julius.desc3': 'Bug fixing and code quality improvement',
-    'exp.julius.desc4': 'Backend architecture and API design',
-    'exp.julius.desc5': 'QA validation, reproduction of issues and test scenarios for CRM workflows',
+    'exp.julius.desc3': 'Bug fixing, code quality improvement and Git/PR collaboration',
+    'exp.julius.desc4': 'Backend architecture, API design and Agile/Jira delivery',
+    'exp.julius.desc5': 'QA validation since 2025: issue reproduction, test scenarios, Postman/API checks and CRM workflow verification',
     
     'exp.security.title': 'Security Guard Manager',
     'exp.security.company': 'CHEVRON | G-ONE',
@@ -387,6 +389,7 @@ const translations = {
     'skills.adaptability': 'Adaptabilité',
     'skills.leadership': 'Leadership',
     'skills.testingDebugging': 'Tests & Débogage',
+    'skills.agile': 'Agile / Scrum',
     
     // Projects Section
     'projects.title': 'Mes',
@@ -425,6 +428,7 @@ const translations = {
     'jobMatch.relevantProjects': 'Projets pertinents',
     'jobMatch.strengths': 'Points forts',
     'jobMatch.gaps': 'Points à clarifier',
+    'jobMatch.tipsTitle': 'Comment mieux te présenter pour ce poste',
     'jobMatch.none': 'Aucune correspondance directe détectée pour l’instant.',
     'jobMatch.noProjects': 'Aucun projet n’est fortement relié à cette offre pour l’instant.',
     'jobMatch.noMajorGaps': 'Aucun écart majeur détecté à partir du texte disponible.',
@@ -562,9 +566,9 @@ const translations = {
     'exp.freelance.period': '2024-2025',
     'exp.freelance.desc1': 'Développement d\'applications web modernes et sites internet',
     'exp.freelance.desc2': 'Développement full-stack avec React, TypeScript et Node.js',
-    'exp.freelance.desc3': 'Gestion de projets clients et livraison',
+    'exp.freelance.desc3': 'Gestion de projets clients et livraison avec workflows Git/GitHub',
     'exp.freelance.desc4': 'Design responsive et optimisation de l\'expérience utilisateur',
-    'exp.freelance.desc5': 'QA manuelle, tests fonctionnels, vérifications de régression et rapports de bugs sur projets clients et personnels',
+    'exp.freelance.desc5': 'QA sur les projets freelance (2024-2025) : tests manuels, fonctionnels, régression, validation API/Postman et rapports de bugs',
     
     'exp.julius.title': 'Fullstack',
     'exp.julius.subtitle': 'Focus backend',
@@ -572,9 +576,9 @@ const translations = {
     'exp.julius.period': '2025 – Actuellement',
     'exp.julius.desc1': 'Développement de projet CRM et correction de bugs. Spécialisé en backend avec TypeScript, Node.js, Flutter, JavaScript, Prisma et Supabase.',
     'exp.julius.desc2': 'Développement de fonctionnalités et modules CRM',
-    'exp.julius.desc3': 'Correction de bugs et amélioration de la qualité du code',
-    'exp.julius.desc4': 'Architecture backend et conception d’API',
-    'exp.julius.desc5': 'Validation QA, reproduction d’anomalies et scénarios de test sur les workflows CRM',
+    'exp.julius.desc3': 'Correction de bugs, qualité du code et collaboration Git/PR',
+    'exp.julius.desc4': 'Architecture backend, conception d’API et livraison Agile/Jira',
+    'exp.julius.desc5': 'Validation QA depuis 2025 : reproduction d’anomalies, scénarios de test, contrôles API/Postman et workflows CRM',
     
     'exp.security.title': 'Responsable Sécurité',
     'exp.security.company': 'CHEVRON | G-ONE',
@@ -689,6 +693,7 @@ const translations = {
     'skills.adaptability': 'הסתגלות',
     'skills.leadership': 'מנהיגות',
     'skills.testingDebugging': 'בדיקות ודיבוג',
+    'skills.agile': 'Agile / Scrum',
     
     // Projects Section
     'projects.title': 'הפרויקטים',
@@ -727,6 +732,7 @@ const translations = {
     'jobMatch.relevantProjects': 'פרויקטים רלוונטיים',
     'jobMatch.strengths': 'נקודות חוזק',
     'jobMatch.gaps': 'פערים אפשריים',
+    'jobMatch.tipsTitle': 'איך להציג את הפרופיל טוב יותר למשרה הזו',
     'jobMatch.none': 'עדיין לא זוהתה התאמה ישירה.',
     'jobMatch.noProjects': 'עדיין אין פרויקט שמחובר חזק לתיאור המשרה הזה.',
     'jobMatch.noMajorGaps': 'לא זוהה פער משמעותי מהטקסט הזמין.',
@@ -868,9 +874,9 @@ const translations = {
     'exp.freelance.period': '2024-2025',
     'exp.freelance.desc1': 'פיתוח אפליקציות אתרים מודרניות ואתרי אינטרנט',
     'exp.freelance.desc2': 'פיתוח full-stack עם React, TypeScript ו-Node.js',
-    'exp.freelance.desc3': 'ניהול פרויקטי לקוחות ומסירה',
+    'exp.freelance.desc3': 'ניהול פרויקטי לקוחות ומסירה עם תהליכי Git/GitHub',
     'exp.freelance.desc4': 'עיצוב רספונסיבי ואופטימיזציה של חוויית המשתמש',
-    'exp.freelance.desc5': 'QA ידני, בדיקות פונקציונליות, בדיקות רגרסיה ודיווח באגים בפרויקטים אישיים וללקוחות',
+    'exp.freelance.desc5': 'QA בפרויקטי פרילנס (2024-2025): בדיקות ידניות, פונקציונליות, רגרסיה, אימות API/Postman ודיווח באגים',
     
     'exp.julius.title': 'Fullstack',
     'exp.julius.subtitle': 'התמחות בבקאנד',
@@ -878,9 +884,9 @@ const translations = {
     'exp.julius.period': '2025 – כיום',
     'exp.julius.desc1': 'פיתוח פרויקט CRM ותיקון באגים. מתמחה בפיתוח בקאנד עם TypeScript, Node.js, Flutter, JavaScript, Prisma ו-Supabase.',
     'exp.julius.desc2': 'פיתוח תכונות ומודולי CRM',
-    'exp.julius.desc3': 'תיקון באגים ושיפור איכות הקוד',
-    'exp.julius.desc4': 'ארכיטקטורת בקאנד ועיצוב API',
-    'exp.julius.desc5': 'אימות QA, שחזור תקלות ותרחישי בדיקה לזרימות CRM',
+    'exp.julius.desc3': 'תיקון באגים, שיפור איכות קוד ושיתוף פעולה ב-Git/PR',
+    'exp.julius.desc4': 'ארכיטקטורת בקאנד, עיצוב API ומסירה ב-Agile/Jira',
+    'exp.julius.desc5': 'אימות QA מאז 2025: שחזור תקלות, תרחישי בדיקה, בדיקות API/Postman וזרימות CRM',
     
     'exp.security.title': 'מנהל אבטחה',
     'exp.security.company': 'CHEVRON | G-ONE',
