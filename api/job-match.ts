@@ -1,4 +1,4 @@
-import { aiProfileContext } from '../src/data/aiProfileContext'
+import { aiProfileContext } from './aiProfileContext.js'
 
 const fallbackResponse = {
   error: 'AI provider is temporarily unavailable. Falling back to local matching.'
@@ -55,12 +55,25 @@ const sanitizeInsight = (insight: any, jobPost: string) => {
   }
 }
 
+const parseRequestBody = (req: any) => {
+  if (!req.body) return {}
+  if (typeof req.body === 'string') {
+    try {
+      return JSON.parse(req.body)
+    } catch {
+      return {}
+    }
+  }
+  return req.body
+}
+
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const jobPost = String(req.body?.jobPost || '').trim()
+  const body = parseRequestBody(req)
+  const jobPost = String(body?.jobPost || '').trim()
   if (jobPost.length < 40) {
     return res.status(400).json({ error: 'Job post is too short.' })
   }
