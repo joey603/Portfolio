@@ -45,10 +45,10 @@ const categoryWeights: Record<MatchCategory, number> = {
 }
 
 const categoryMultipliers: Record<MatchCategory, number> = {
-  technical: 1.8,
-  responsibility: 1.6,
-  project: 1,
-  softSkill: 1.3
+  technical: 2.2,
+  responsibility: 1.8,
+  project: 1.2,
+  softSkill: 1.5
 }
 
 export const profileSignals: ProfileSignal[] = [
@@ -77,8 +77,15 @@ export const profileSignals: ProfileSignal[] = [
     id: 'javascript',
     label: 'JavaScript',
     category: 'technical',
-    weight: 7,
+    weight: 8,
     keywords: ['javascript', 'js', 'es6']
+  },
+  {
+    id: 'html-css',
+    label: 'HTML / CSS',
+    category: 'technical',
+    weight: 7,
+    keywords: ['html', 'html5', 'css', 'css3', 'sass', 'scss', 'tailwind']
   },
   {
     id: 'node',
@@ -320,7 +327,9 @@ const expectedSkillKeywords = [
   'git',
   'jira',
   'next.js',
-  'postman'
+  'postman',
+  'html',
+  'css'
 ]
 
 const buildImprovementTips = (normalizedPost: string, matchedSignalIds: Set<string>) => {
@@ -328,6 +337,10 @@ const buildImprovementTips = (normalizedPost: string, matchedSignalIds: Set<stri
 
   if (['git', 'github', 'version control', 'pull request', 'code review'].some((keyword) => hasKeyword(normalizedPost, keyword))) {
     tips.push('Highlight Git/GitHub workflows, pull requests and code reviews from Julius Agency and personal projects.')
+  }
+
+  if (hasKeyword(normalizedPost, 'php') && ['html', 'css', 'javascript'].some((keyword) => hasKeyword(normalizedPost, keyword))) {
+    tips.push('For PHP-heavy roles, lead with HTML/CSS/JavaScript and modern stack strengths, and frame PHP as a quick onboarding skill.')
   }
 
   if (['agile', 'scrum', 'jira', 'sprint', 'ticket', 'backlog'].some((keyword) => hasKeyword(normalizedPost, keyword))) {
@@ -393,19 +406,29 @@ export const analyzeJobPost = (jobPost: string): MatchResult => {
     .sort((a, b) => b.matches - a.matches)
     .slice(0, 3)
 
-  const projectBonus = Math.min(categoryWeights.project, relevantProjects.reduce((sum, project) => sum + project.matches * 4, 0))
-  const totalScore = Math.round(Math.min(100, scoresByCategory.technical + scoresByCategory.responsibility + scoresByCategory.softSkill + projectBonus))
+  const projectBonus = Math.min(categoryWeights.project, relevantProjects.reduce((sum, project) => sum + project.matches * 5, 0))
+  const rawScore = scoresByCategory.technical + scoresByCategory.responsibility + scoresByCategory.softSkill + projectBonus
+  const webFundamentalsMatched = matchedSignals.filter((signal) =>
+    ['html-css', 'javascript', 'react', 'typescript'].includes(signal.id)
+  ).length
+  const partialMatchBoost = webFundamentalsMatched >= 2 ? 18 : webFundamentalsMatched === 1 ? 8 : 0
+  const totalScore = Math.round(Math.min(100, Math.max(rawScore + partialMatchBoost, webFundamentalsMatched >= 2 ? 72 : rawScore)))
 
   const matchedSkillLabels = Array.from(new Set(matchedSignals.map((signal) => signal.label))).slice(0, 10)
   const missingSkills = expectedSkillKeywords
     .filter((keyword) => hasKeyword(normalizedPost, keyword))
     .filter((keyword) => !matchedSignals.some((signal) => signal.keywords.includes(keyword)))
+    // One secondary missing skill (e.g. PHP) should not dominate the gaps list for web roles.
+    .filter((keyword) => !(keyword === 'php' && webFundamentalsMatched >= 2))
     .map((keyword) => keyword.charAt(0).toUpperCase() + keyword.slice(1))
     .slice(0, 5)
 
   const matchedSignalIds = new Set(matchedSignals.map((signal) => signal.id))
 
   const strengths = [
+    matchedSignals.some((signal) => signal.id === 'html-css' || signal.id === 'javascript')
+      ? 'Solid web fundamentals with HTML, CSS and JavaScript, plus about 2-3 years of practical experience.'
+      : '',
     matchedSignals.some((signal) => signal.id === 'react' || signal.id === 'typescript' || signal.id === 'nextjs')
       ? 'Modern front-end experience with React, TypeScript and Next.js.'
       : '',
@@ -452,5 +475,40 @@ export const analyzeJobPost = (jobPost: string): MatchResult => {
     relevantProjects,
     strengths,
     improvementTips: buildImprovementTips(normalizedPost, matchedSignalIds)
+  }
+}
+
+export const buildLocalInsight = (result: MatchResult): {
+  summary: string
+  recommendation: 'yes' | 'maybe' | 'no'
+  strongPoints: string[]
+  gaps: string[]
+  suggestion: string
+  tips: string[]
+} => {
+  const recommendation =
+    result.verdictLevel === 'strong' || result.verdictLevel === 'good'
+      ? 'yes'
+      : result.verdictLevel === 'partial'
+        ? 'maybe'
+        : 'no'
+
+  const summary =
+    recommendation === 'yes'
+      ? `Strong overlap with about 2-3 years of experience and core skills such as ${result.matchedSkills.slice(0, 4).join(', ') || 'modern web development'}. Secondary missing items can be treated as onboarding, not blockers.`
+      : recommendation === 'maybe'
+        ? `Partial overlap with relevant experience in ${result.matchedSkills.slice(0, 3).join(', ') || 'software engineering'}. A few points may need clarification for this role.`
+        : 'Limited direct overlap with the mandatory requirements in this job post.'
+
+  return {
+    summary,
+    recommendation,
+    strongPoints: result.strengths.slice(0, 4),
+    gaps: result.missingSkills.slice(0, 3),
+    suggestion:
+      recommendation === 'yes'
+        ? 'Lead with the matching skills and projects, and present any secondary missing skill as a quick learn during onboarding.'
+        : 'Highlight transferable projects and the closest overlapping skills first.',
+    tips: result.improvementTips.slice(0, 4)
   }
 }

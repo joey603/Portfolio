@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { aiProfileContext } from './src/data/aiProfileContext'
 
 const parseJson = (value: string) => {
   const cleaned = value.replace(/```json|```/g, '').trim()
@@ -24,8 +23,8 @@ const sanitizeInsight = (insight: any, jobPost: string) => {
     const normalizedGap = gap.toLowerCase()
     const isInternalSystemGap = /פנינה|דלפי|אודם|internal core system|proprietary|company-specific/i.test(gap)
     const isGenericMobileGap = /mobile/i.test(normalizedGap)
-    const isSoftGap = /high-pressure|pressure|deadline|tight|years? not specified|exact qa years/i.test(normalizedGap)
-    const isCoveredProcessGap = /git|github|jira|agile|scrum|postman|ci\/?cd|vercel|next\.?js|language|french|hebrew|english/i.test(normalizedGap)
+    const isSoftGap = /high-pressure|pressure|deadline|tight|years? not specified|exact qa years|years of experience|2 years|3 years|experience years/i.test(normalizedGap)
+    const isCoveredProcessGap = /git|github|jira|agile|scrum|postman|ci\/?cd|vercel|next\.?js|language|french|hebrew|english|html|css|javascript|\bphp\b|laravel|wordpress/i.test(normalizedGap)
 
     if (isInternalSystemGap && !explicitlyMandatoryInternalSystem) return false
     if (isGenericMobileGap && !requiresNativeMobile) return false
@@ -47,7 +46,7 @@ const sanitizeInsight = (insight: any, jobPost: string) => {
     summary,
     gaps: filteredGaps,
     tips,
-    recommendation: filteredGaps.length === 0 && insight.recommendation === 'maybe'
+    recommendation: filteredGaps.length <= 1 && insight.recommendation !== 'no'
       ? 'yes'
       : insight.recommendation
   }
@@ -63,27 +62,24 @@ const readRequestBody = async (req: import('http').IncomingMessage) => {
   return Buffer.concat(chunks).toString('utf8')
 }
 
-const createPrompt = (jobPost: string) => `
-You are an honest recruiting assistant for a portfolio website.
-Analyze whether Yoeli matches the job post below using only the profile context.
-Prioritize hard technical requirements in the score. Do not over-penalize soft skills, domain-specific internal systems, or vague experience wording.
-Only put items in "gaps" if they are mandatory hard technical requirements clearly not covered by the profile. For soft skills, mobile testing, pressure/deadlines, years wording, proprietary systems, Git, Jira, Agile, Postman, Next.js, CI/CD/Vercel or languages already covered by the profile, prefer mentioning them in "tips" as presentation advice. Never include "exact QA years not specified", proprietary systems, high-pressure work, or generic mobile testing as gaps.
-Return strict JSON with this shape:
-{
-  "summary": "2 short sentences",
-  "recommendation": "yes | maybe | no",
-  "strongPoints": ["..."],
-  "gaps": ["..."],
-  "suggestion": "one practical sentence for the recruiter or candidate",
-  "tips": ["up to 4 short tips to present the profile better for this specific job"]
-}
+const createPrompt = (jobPost: string) => {
+  const compactProfile = `Yoeli Barthel, software engineer, ~2-3 years experience.
+Skills: HTML, CSS, JavaScript, React, Next.js, TypeScript, Node.js, Python, REST, MongoDB, PostgreSQL, Prisma, Supabase, QA, Jest, Playwright, Postman, Git, Jira, Agile.
+Projects: Sportivis, The Lion Vault, SurveyFlow, Sidour Avoda (G1), Elsa Fitness, DiveSpot, Julius CRM.
+No PHP expertise. Treat missing PHP as a tip/onboarding item if HTML/CSS/JS match.
+Prefer yes when most requirements match; be generous for junior 1-3 year roles.`
 
-Profile context:
-${aiProfileContext}
+  return `Match Yoeli to this job. Be generous if most skills overlap. Missing one secondary skill (e.g. PHP) must not tank the score.
+Return ONLY JSON:
+{"summary":"2 sentences","recommendation":"yes|maybe|no","strongPoints":["..."],"gaps":["..."],"suggestion":"...","tips":["..."]}
 
-Job post:
-${jobPost}
+Profile:
+${compactProfile}
+
+Job:
+${jobPost.slice(0, 2500)}
 `
+}
 
 const jobMatchDevApi = () => ({
   name: 'job-match-dev-api',
@@ -123,7 +119,7 @@ const jobMatchDevApi = () => ({
               }
             ],
             temperature: 0.2,
-            max_tokens: 800
+            max_tokens: 500
           })
         })
 

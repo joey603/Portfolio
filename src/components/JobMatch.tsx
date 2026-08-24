@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Bot, Brain, CheckCircle2, Lightbulb, Loader2, Sparkles, Target, XCircle } from 'lucide-react'
-import { analyzeJobPost, MatchResult } from '../data/profileMatchData'
+import { analyzeJobPost, buildLocalInsight, MatchResult } from '../data/profileMatchData'
 import { useLanguage } from '../contexts/LanguageContext'
 
 interface AiInsight {
@@ -24,11 +24,13 @@ const sanitizeAiInsight = (insight: AiInsight, jobPost: string): AiInsight => {
     const normalizedGap = gap.toLowerCase()
     const isInternalSystemGap = /פנינה|דלפי|אודם|internal core system|proprietary|company-specific/i.test(gap)
     const isGenericMobileGap = /mobile/i.test(normalizedGap)
-    const isSoftGap = /high-pressure|pressure|deadline|tight|years? not specified|exact qa years/i.test(normalizedGap)
+    const isSoftGap = /high-pressure|pressure|deadline|tight|years? not specified|exact qa years|years of experience|2 years|3 years|experience years/i.test(normalizedGap)
+    const isCoveredProcessGap = /git|github|jira|agile|scrum|postman|ci\/?cd|vercel|next\.?js|language|french|hebrew|english|html|css|javascript|\bphp\b|laravel|wordpress/i.test(normalizedGap)
 
     if (isInternalSystemGap && !explicitlyMandatoryInternalSystem) return false
     if (isGenericMobileGap && !requiresNativeMobile) return false
     if (isSoftGap) return false
+    if (isCoveredProcessGap) return false
     return true
   })
 
@@ -45,7 +47,7 @@ const sanitizeAiInsight = (insight: AiInsight, jobPost: string): AiInsight => {
     summary,
     gaps,
     tips,
-    recommendation: gaps.length === 0 && insight.recommendation === 'maybe'
+    recommendation: gaps.length <= 1 && insight.recommendation !== 'no'
       ? 'yes'
       : insight.recommendation
   }
@@ -60,10 +62,10 @@ const getVerdictLevel = (score: number): MatchResult['verdictLevel'] => {
 
 const alignScoreWithAi = (result: MatchResult, insight: AiInsight): MatchResult => {
   const minimumScore = insight.recommendation === 'yes'
-    ? 78
+    ? 82
     : insight.recommendation === 'maybe'
-      ? 58
-      : 0
+      ? 68
+      : Math.max(result.score, 35)
   const score = Math.max(result.score, minimumScore)
 
   return {
@@ -94,7 +96,7 @@ const JobMatch = () => {
   const [result, setResult] = useState<MatchResult | null>(null)
   const [aiInsight, setAiInsight] = useState<AiInsight | null>(null)
   const [isAnalyzing, setIsAnalyzing] = useState(false)
-  const [aiStatus, setAiStatus] = useState<'idle' | 'ai' | 'error'>('idle')
+  const [aiStatus, setAiStatus] = useState<'idle' | 'ai' | 'local' | 'error'>('idle')
 
   const canAnalyze = jobPost.trim().length >= 40
   const verdictText = result ? t(`jobMatch.verdict.${result.verdictLevel}`) : ''
@@ -123,6 +125,8 @@ const JobMatch = () => {
     setAiStatus('idle')
     setIsAnalyzing(true)
 
+    const localResult = analyzeJobPost(jobPost)
+
     try {
       const response = await fetch('/api/job-match', {
         method: 'POST',
@@ -135,15 +139,15 @@ const JobMatch = () => {
       }
 
       const data = sanitizeAiInsight(await response.json() as AiInsight, jobPost)
-      const localResult = analyzeJobPost(jobPost)
 
       setResult(alignScoreWithAi(localResult, data))
       setAiInsight(data)
       setAiStatus('ai')
     } catch {
-      setResult(null)
-      setAiInsight(null)
-      setAiStatus('error')
+      const localInsight = buildLocalInsight(localResult)
+      setResult(alignScoreWithAi(localResult, localInsight))
+      setAiInsight(localInsight)
+      setAiStatus('local')
     } finally {
       setIsAnalyzing(false)
     }
@@ -269,7 +273,7 @@ const JobMatch = () => {
                   <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
                     <div className="flex items-center gap-2 text-sm font-semibold text-blue-300 mb-3">
                       <Bot size={16} />
-                      {t('jobMatch.aiPowered')}
+                      {aiStatus === 'local' ? t('jobMatch.localPowered') : t('jobMatch.aiPowered')}
                     </div>
                     <p className="text-sm text-gray-400">
                       {aiInsight?.suggestion}
