@@ -137,6 +137,22 @@ const translations = {
     'jobMatch.summary.low': 'This job post does not strongly match the experience presented in this portfolio.',
     
     // Project Details
+    'project.sportivis.title': 'Sportivis - Workout Tracker',
+    'project.sportivis.description': 'Web app for tracking workouts and training programs (gym machines, free weights, cardio), with exercise library, live sessions, optional Supabase sync and AI-assisted program generation.',
+    'project.sportivis.period': '2026',
+    'project.sportivis.feature1': 'Filterable exercise library and structured training programs',
+    'project.sportivis.feature2': 'Live workout flow with effort, rest and next-exercise sequencing',
+    'project.sportivis.feature3': 'AI program generation and meal calorie estimates (Groq)',
+    'project.sportivis.feature4': 'French/Hebrew UI with optional cloud sync via Supabase',
+
+    'project.lionvault.title': 'The Lion Vault - Luxury Raffle Platform',
+    'project.lionvault.description': 'Exclusive raffle platform for luxury items (watches, jewelry, rare objects) with public catalog, ticket purchases via Stripe, user dashboard and admin lot management.',
+    'project.lionvault.period': '2026',
+    'project.lionvault.feature1': 'Public catalog of lots with draw dates and entry prices',
+    'project.lionvault.feature2': 'Authentication, Stripe Checkout and user participation history',
+    'project.lionvault.feature3': 'Admin panel to create lots, upload photos, close and archive raffles',
+    'project.lionvault.feature4': 'Per-lot admin view with buyers, ticket numbers and revenue',
+
     'project.surveyflow.title': 'SurveyFlow - Survey Platform',
     'project.surveyflow.description': 'Development of a comprehensive online platform allowing users to create, share and analyze static or dynamic surveys intuitively.',
     'project.surveyflow.period': '2024-2025',
@@ -445,6 +461,22 @@ const translations = {
     'jobMatch.summary.low': 'Cette offre ne correspond pas fortement à l’expérience présentée dans ce portfolio.',
     
     // Project Details
+    'project.sportivis.title': 'Sportivis - Suivi d\'entraînement',
+    'project.sportivis.description': 'Application web de suivi de séances et programmes de sport (machines, poids libres, cardio), avec bibliothèque d\'exercices, séances live, sync Supabase optionnelle et génération de programmes par IA.',
+    'project.sportivis.period': '2026',
+    'project.sportivis.feature1': 'Bibliothèque d\'exercices filtrable et programmes structurés',
+    'project.sportivis.feature2': 'Séance live avec enchaînement effort, repos et exercice suivant',
+    'project.sportivis.feature3': 'Génération de programmes IA et estimation calorique des repas (Groq)',
+    'project.sportivis.feature4': 'Interface FR/HE avec synchronisation cloud optionnelle via Supabase',
+
+    'project.lionvault.title': 'The Lion Vault - Tombolas de luxe',
+    'project.lionvault.description': 'Plateforme de tombolas exclusives pour pièces de luxe (montres, bijoux, objets rares) avec catalogue public, achat de tickets Stripe, espace utilisateur et administration des lots.',
+    'project.lionvault.period': '2026',
+    'project.lionvault.feature1': 'Catalogue public des lots avec date de tirage et prix',
+    'project.lionvault.feature2': 'Authentification, Stripe Checkout et historique des participations',
+    'project.lionvault.feature3': 'Admin : création de lots, photos, clôture et archivage',
+    'project.lionvault.feature4': 'Vue admin par lot : acheteurs, numéros de tickets et montant encaissé',
+
     'project.surveyflow.title': 'SurveyFlow - Plateforme de Sondages',
     'project.surveyflow.description': 'Développement d\'une plateforme en ligne complète permettant aux utilisateurs de créer, partager et analyser des sondages statiques ou dynamiques de manière intuitive.',
     'project.surveyflow.period': '2024-2025',
@@ -749,6 +781,22 @@ const translations = {
     'jobMatch.summary.low': 'תיאור המשרה לא מתאים בצורה חזקה לניסיון שמוצג בפורטפוליו.',
     
     // Project Details
+    'project.sportivis.title': 'Sportivis - מעקב אימונים',
+    'project.sportivis.description': 'אפליקציית ווב למעקב אחרי אימונים ותוכניות אימון (מכונות, משקולות חופשיות, קרדיו), עם ספריית תרגילים, אימונים חיים, סנכרון Supabase אופציונלי ויצירת תוכניות בעזרת AI.',
+    'project.sportivis.period': '2026',
+    'project.sportivis.feature1': 'ספריית תרגילים ניתנת לסינון ותוכניות אימון מובנות',
+    'project.sportivis.feature2': 'אימון חי עם רצף מאמץ, מנוחה ותרגיל הבא',
+    'project.sportivis.feature3': 'יצירת תוכניות AI והערכת קלוריות לארוחות (Groq)',
+    'project.sportivis.feature4': 'ממשק FR/HE עם סנכרון ענן אופציונלי דרך Supabase',
+
+    'project.lionvault.title': 'The Lion Vault - פלטפורמת הגרלות יוקרה',
+    'project.lionvault.description': 'פלטפורמת הגרלות בלעדיות לפריטי יוקרה (שעונים, תכשיטים, חפצים נדירים) עם קטלוג ציבורי, רכישת כרטיסים ב-Stripe, אזור משתמש וניהול מנהל של מגרשים.',
+    'project.lionvault.period': '2026',
+    'project.lionvault.feature1': 'קטלוג ציבורי של מגרשים עם תאריכי הגרלה ומחירים',
+    'project.lionvault.feature2': 'אימות, Stripe Checkout והיסטוריית השתתפויות',
+    'project.lionvault.feature3': 'ניהול מנהל: יצירת מגרשים, תמונות, סגירה וארכוב',
+    'project.lionvault.feature4': 'תצוגת מנהל לפי מגרש: קונים, מספרי כרטיסים והכנסות',
+
     'project.surveyflow.title': 'SurveyFlow - פלטפורמת סקרים',
     'project.surveyflow.description': 'פיתוח פלטפורמה מקוונת מקיפה המאפשרת למשתמשים ליצור, לשתף ולנתח סקרים סטטיים או דינמיים באופן אינטואיטיבי.',
     'project.surveyflow.period': '2024-2025',

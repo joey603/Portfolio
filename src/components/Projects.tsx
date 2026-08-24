@@ -11,22 +11,22 @@ const Projects = () => {
 
   const projects = [
     {
-      title: t('project.surveyflow.title'),
-      description: t('project.surveyflow.description'),
-      period: t('project.surveyflow.period'),
-      technologies: ["React", "Next.js", "Node.js", "MongoDB", "Material-UI", "OAuth", "REST API"],
+      title: t('project.lionvault.title'),
+      description: t('project.lionvault.description'),
+      period: t('project.lionvault.period'),
+      technologies: ["Next.js", "TypeScript", "Prisma", "Neon", "Better Auth", "Stripe", "Tailwind CSS"],
       features: [
-        t('project.surveyflow.feature1'),
-        t('project.surveyflow.feature2'),
-        t('project.surveyflow.feature3'),
-        t('project.surveyflow.feature4')
+        t('project.lionvault.feature1'),
+        t('project.lionvault.feature2'),
+        t('project.lionvault.feature3'),
+        t('project.lionvault.feature4')
       ],
       links: {
-        github: "https://github.com/joey603/SurveyPro.git",
-        demo: "https://www.surveyflow.co/"
+        github: "https://github.com/joey603/the-lyon-vault",
+        demo: "https://the-lyon-vault.vercel.app"
       },
       category: "Web Development",
-      color: "blue"
+      color: "purple"
     },
     {
       title: t('project.sidour.title'),
@@ -52,6 +52,42 @@ const Projects = () => {
       category: t('category.desktopWeb'),
       color: "green",
       usedBy: t('project.sidour.usedBy')
+    },
+    {
+      title: t('project.sportivis.title'),
+      description: t('project.sportivis.description'),
+      period: t('project.sportivis.period'),
+      technologies: ["React", "TypeScript", "Vite", "Supabase", "Groq AI", "RTL"],
+      features: [
+        t('project.sportivis.feature1'),
+        t('project.sportivis.feature2'),
+        t('project.sportivis.feature3'),
+        t('project.sportivis.feature4')
+      ],
+      links: {
+        github: "https://github.com/joey603/sportivis",
+        demo: "https://sportivis.vercel.app"
+      },
+      category: "Web Development",
+      color: "orange"
+    },
+    {
+      title: t('project.surveyflow.title'),
+      description: t('project.surveyflow.description'),
+      period: t('project.surveyflow.period'),
+      technologies: ["React", "Next.js", "Node.js", "MongoDB", "Material-UI", "OAuth", "REST API"],
+      features: [
+        t('project.surveyflow.feature1'),
+        t('project.surveyflow.feature2'),
+        t('project.surveyflow.feature3'),
+        t('project.surveyflow.feature4')
+      ],
+      links: {
+        github: "https://github.com/joey603/SurveyPro.git",
+        demo: "https://www.surveyflow.co/"
+      },
+      category: "Web Development",
+      color: "blue"
     },
     {
       title: t('project.elsafitness.title'),

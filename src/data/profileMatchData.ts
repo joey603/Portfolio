@@ -252,6 +252,18 @@ export const profileSignals: ProfileSignal[] = [
 
 export const profileProjects: ProfileProject[] = [
   {
+    name: 'Sportivis',
+    description: 'Workout tracker with programs, live sessions, Supabase sync and AI program generation.',
+    keywords: ['sport', 'fitness', 'workout', 'training', 'react', 'typescript', 'vite', 'supabase', 'ai', 'rtl', 'hebrew', 'qa', 'testing'],
+    highlights: ['React / TypeScript / Vite', 'Supabase sync', 'AI program generation']
+  },
+  {
+    name: 'The Lion Vault',
+    description: 'Luxury raffle platform with Stripe payments, Neon/Prisma backend and admin lot management.',
+    keywords: ['next', 'next.js', 'typescript', 'prisma', 'neon', 'stripe', 'auth', 'ecommerce', 'admin', 'saas', 'qa', 'testing'],
+    highlights: ['Next.js / Prisma / Neon', 'Stripe Checkout', 'Admin raffle management']
+  },
+  {
     name: 'SurveyFlow',
     description: 'Survey platform with builder, sharing, analytics, OAuth and REST API.',
     keywords: ['survey', 'analytics', 'react', 'next', 'next.js', 'node', 'mongodb', 'oauth', 'api', 'saas', 'dashboard', 'qa', 'testing', 'test cases', 'git', 'github'],

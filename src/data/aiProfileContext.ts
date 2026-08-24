@@ -3,6 +3,8 @@ Yoeli Barthel is a software engineer specialized in AI and modern web developmen
 Core skills: React, Next.js, TypeScript, JavaScript, Node.js, Python, REST APIs, OAuth, MongoDB, PostgreSQL, SQLite, Prisma, Supabase, responsive UI/UX, debugging, CRM features, QA, manual testing, functional testing, regression testing, test cases, bug reports, Jest, Playwright, Postman, API testing, Git, GitHub, pull requests, code review, Agile, Scrum, Jira, sprints, tickets, Vercel deployments, CI/CD basics, client delivery and team leadership.
 Languages: French, Hebrew and English.
 Projects:
+- Sportivis: React/TypeScript/Vite workout tracker with exercise library, live sessions, French/Hebrew UI, optional Supabase cloud sync and Groq AI program generation.
+- The Lion Vault: Next.js luxury raffle platform with TypeScript, Prisma, Neon Postgres, Better Auth, Stripe Checkout, public catalog and admin lot management.
 - SurveyFlow: survey platform with React, Next.js, Node.js, MongoDB, OAuth, REST API, analytics, Git workflow and QA validation.
 - Sidour Avoda: Python desktop app and Next.js SaaS for scheduling, role management and complex sites, used by Chevron / G-One, with workflow testing and regression checks.
 - Elsa Fitness: TypeScript/React fitness site with course booking, admin panel, backend and functional QA.
